@@ -1,31 +1,44 @@
-import { StyleSheet } from 'react-native';
+import { View, Text, ScrollView, Image, Platform } from "react-native";
+import React from "react";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
+import { BellIcon } from "react-native-heroicons/outline";
+import Navbar from "@/components/layout/Navbar";
 
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
-
-export default function TabOneScreen() {
+function Home() {
+  const ios  = Platform.OS === "ios"
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
+    <View className="flex-1 bg-white">
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{
+          paddingBottom: 50,
+        }}
+      >
+        <View className="mx-4 mb-7">
+          <Text style={{ fontSize: hp(1.7) }} className="text-neutral-600">
+            Hello, Pungpond!
+          </Text>
+          <View>
+            <Text
+              style={{ fontSize: hp(3.8) }}
+              className="font-semibold text-neutral-600"
+            >
+             Friends thinking  
+            </Text>
+          </View>
+          <Text
+            style={{ fontSize: hp(3.8) }}
+            className="font-semibold text-neutral-600"
+          >
+            about <Text className="text-sky-600">health</Text>
+          </Text>
+        </View>
+      </ScrollView>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});
+export default Home;
