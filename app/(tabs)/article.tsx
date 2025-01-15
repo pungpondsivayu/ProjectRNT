@@ -1,44 +1,50 @@
-import { ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import { GestureResponderEvent, ScrollView, TextInput, TouchableOpacity, View } from "react-native";
 import React, { useEffect, useState } from "react";
 import { MagnifyingGlassIcon } from "react-native-heroicons/outline";
+import { Formik } from "formik";
+import { IArticleCategory } from "@/@types/article/ArticleType";
+import { useSelector } from "react-redux";
+import { selectAllsetArticle } from "@/redux/slice/article.slice";
+import Categories from "@/components/article/Categories";
+import Article from "@/components/article/Article";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import Categories from "@/components/article/Categories";
-import Article from "@/components/article/Article";
-import { useGetArticleCategoriesQuery, useGetArticleQuery } from "@/controllers/Article.Controllers";
-import { IArticleCategory } from "@/@types/article/ArticleType"
-
-import { useSelector } from "react-redux";
-import { selectAllsetArticle } from "@/redux/slice/article.slice";
+import {
+  useGetArticleCategoriesQuery,
+  useGetArticleQuery,
+} from "@/controllers/Article.Controllers";
 
 export default function article() {
   const [activeCategory, setActiveCategory] = useState<Number | undefined>(1);
+  const [searchArticle , setSearchArticle] = useState<string | undefined>("")
   const [category, setCategory] = useState<IArticleCategory[]>([]);
   const [article, setArtitle] = useState<IArticleCategory[]>([]);
-  const { currentData: categoryData, error:categoryDatacategoryError } = useGetArticleCategoriesQuery(null);
-  const { currentData: articleData, error:articleError } = useGetArticleQuery(activeCategory); 
   const articldara = useSelector(selectAllsetArticle);
-  // console.log(articleData)
-  function GetCategories() { 
+  const { currentData: categoryData, error: categoryDatacategoryError } =
+    useGetArticleCategoriesQuery(null);
+  const { currentData: articleData, error: articleError } = useGetArticleQuery(
+    {activeCategory , searchArticle},
+    {
+      refetchOnMountOrArgChange: true,
+    }
+  );
+  function GetCategories() {
     if (categoryData && !categoryDatacategoryError) {
       setCategory(categoryData);
     }
   }
-  
-  function GetArticles(){
-    console.log(articldara)
+
+  function GetArticles() {
     if (articleData && !articleError) {
-      setArtitle(articldara);
+      setArtitle(articleData);
     }
   }
 
   const FillterArticleByCategory = (activeCategory: number) => {
-    setActiveCategory(activeCategory)
+    setActiveCategory(activeCategory);
   };
-
-
 
   useEffect(() => {
     GetCategories();
@@ -46,7 +52,7 @@ export default function article() {
 
   useEffect(() => {
     GetArticles();
-  }, [articleData , activeCategory]);
+  }, [articleData, activeCategory , searchArticle]);
 
   return (
     <View className="flex-1 bg-white">
@@ -56,19 +62,40 @@ export default function article() {
           paddingBottom: 50,
         }}
       >
-        <View className="mx-4 flex-row items-center rounded-full bg-black/5 p-[6px] mb-7">
-          <TextInput
-            placeholder="Search any recipe"
-            placeholderTextColor="gray"
-            style={{
-              fontSize: hp(1.7),
-            }}
-            className="flex-1 text-base mb-1 pl-3 tracking-wider"
-          />
-          <View className="bg-white rounded-full p-3">
-            <MagnifyingGlassIcon size={hp(2.5)} strokeWidth={3} color="gray" />
-          </View>
-        </View>
+        <Formik
+          initialValues={{ searchAricle: "" }}
+          onSubmit={(values) => setSearchArticle(values.searchAricle)}
+        >
+          {({ handleChange, handleBlur, handleSubmit, values }) => (
+            <View className="mx-4 flex-row items-center rounded-full bg-black/5 p-[6px] mb-7">
+              <TextInput
+                placeholder="Search any article"
+                placeholderTextColor="gray"
+                style={{
+                  fontSize: hp(1.7),
+                }}
+                className="flex-1 text-base mb-1 pl-3 tracking-wider"
+                onChangeText={handleChange("searchAricle")}
+                onBlur={handleBlur("searchAricle")}
+                value={values.searchAricle}
+              />
+              <View className="bg-white rounded-full p-3">
+                <TouchableOpacity
+                  onPress={(event: GestureResponderEvent) => {
+                    handleSubmit();
+                  }}
+                >
+                  <MagnifyingGlassIcon
+                    size={hp(2.5)}
+                    strokeWidth={3}
+                    color="gray"
+                  />
+                </TouchableOpacity>
+              </View>
+            </View>
+          )}
+        </Formik>
+
         <View className="mb-7">
           <Categories
             category={category}
@@ -77,7 +104,7 @@ export default function article() {
           />
         </View>
         <View className="mb-7">
-          <Article article={article}/>
+          <Article article={article} />
         </View>
       </ScrollView>
     </View>

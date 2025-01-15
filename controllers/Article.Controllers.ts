@@ -7,14 +7,18 @@ export const ArticleCategoryController = BaseApi.injectEndpoints({
       query: () => ({
         url: `/category`,
         method: "GET",
-      }),
-      providesTags: ["Categories"],
+      }), providesTags: ["Categories"],
     }),
     getArticle: builder.query({
-      query: category => ({
-        url: `/article?category=${category}`,
-        method: "GET",
-      }),
+      query: Data => {
+        const { activeCategory:category , searchArticle:search } = Data
+        let param = `?category=${category}`
+        search ? param += `&name_like=${search}` : ""
+        return {
+          url: `/article${param}`,
+          method: "GET",
+        };
+      },
       providesTags: ["Article"],
       async onQueryStarted(queryArgument, { dispatch, queryFulfilled }) {
         try {

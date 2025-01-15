@@ -1,24 +1,25 @@
 {
   "category": [
-    { "id": 1 , "name": "All"  , "isUsed" : true},
-    { "id": 2 , "name": "General knowledge." ,"isUsed" : true},
-    { "id": 3 , "name": "knowledge of surgical diseases." ,"isUsed" : true},
-    { "id": 4 , "name": "Knowledge of the Chinese Plan." ,"isUsed" : true},
-    { "id": 5 , "name": "Knowledge of Internal Medicine." , "isUsed" : true},
-    { "id": 6 , "name": "knowledge of children" ,"isUsed" : true},
-    { "id": 7 , "name": "Knowledge for Ladies." ,"isUsed" : true},
-    { "id": 8 , "name": "Ear, nose and throat disease" ,"isUsed" : true},
-    { "id": 9 , "name": "Thai traditional knowledge" ,"isUsed" : true},
-    { "id": 10 , "name": "COVID19 Knowledge" ,"isUsed" : true},
+    { "id": 1, "name": "All", "isUsed": true },
+    { "id": 2, "name": "General knowledge.", "isUsed": true },
+    { "id": 3, "name": "knowledge of surgical diseases.", "isUsed": true },
+    { "id": 4, "name": "Knowledge of the Chinese Plan.", "isUsed": true },
+    { "id": 5, "name": "Knowledge of Internal Medicine.", "isUsed": true },
+    { "id": 6, "name": "knowledge of children", "isUsed": true },
+    { "id": 7, "name": "Knowledge for Ladies.", "isUsed": true },
+    { "id": 8, "name": "Ear, nose and throat disease", "isUsed": true },
+    { "id": 9, "name": "Thai traditional knowledge", "isUsed": true },
+    { "id": 10, "name": "COVID19 Knowledge", "isUsed": true },
     { "id": 11, "name": "Ophthalmic disease", "isUsed": true }
   ],
-  "article" : [
+  "article": [
     {
       "id": 1,
       "name": "จะกำจัดถุงใต้ตาของท่านได้อย่างไร",
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus temporibus maxime vitae ducimus iste dolor, voluptas non accusamus eligendi sit reiciendis cupiditate, unde accusantium vero omnis deserunt eos esse dolorum mollitia, suscipit enim. Assumenda deleniti, animi placeat dolorem voluptatibus, magni similique libero quis ducimus et, id atque porro fuga cupiditate sapiente qui harum. Quo repellendus asperiores dicta necessitatibus ab, commodi exercitationem beatae maxime, rem dolorum amet non libero aliquam, fuga accusamus. Repellat eius, ipsa, fugiat earum delectus ut amet natus ducimus impedit optio laboriosam dolores doloribus eligendi labore perspiciatis! Consectetur corrupti ea eius facilis soluta laudantium reiciendis exercitationem aut officia.",
       "iamge": "https://images.ctfassets.net/u4vv676b8z52/46ZaHQFGxlbBCSIhjBTeQQ/989b6753625b5ecfd6fcf3440430397d/droopy_lids_hero.jpeg?fm=jpg&q=80",
       "category": 2,
+      "categoryName": "eneral knowledge.",
       "isUsed": true
     },
     {
@@ -27,6 +28,7 @@
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus temporibus maxime vitae ducimus iste dolor, voluptas non accusamus eligendi sit reiciendis cupiditate, unde accusantium vero omnis deserunt eos esse dolorum mollitia, suscipit enim. Assumenda deleniti, animi placeat dolorem voluptatibus, magni similique libero quis ducimus et, id atque porro fuga cupiditate sapiente qui harum. Quo repellendus asperiores dicta necessitatibus ab, commodi exercitationem beatae maxime, rem dolorum amet non libero aliquam, fuga accusamus. Repellat eius, ipsa, fugiat earum delectus ut amet natus ducimus impedit optio laboriosam dolores doloribus eligendi labore perspiciatis! Consectetur corrupti ea eius facilis soluta laudantium reiciendis exercitationem aut officia.",
       "iamge": "https://www.gj.mahidol.ac.th/main/wp-content/uploads/2024/12/หน้าปกเว็บ_3-12.png",
       "category": 2,
+      "categoryName": "eneral knowledge.",
       "isUsed": true
     },
     {
@@ -35,6 +37,7 @@
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus temporibus maxime vitae ducimus iste dolor, voluptas non accusamus eligendi sit reiciendis cupiditate, unde accusantium vero omnis deserunt eos esse dolorum mollitia, suscipit enim. Assumenda deleniti, animi placeat dolorem voluptatibus, magni similique libero quis ducimus et, id atque porro fuga cupiditate sapiente qui harum. Quo repellendus asperiores dicta necessitatibus ab, commodi exercitationem beatae maxime, rem dolorum amet non libero aliquam, fuga accusamus. Repellat eius, ipsa, fugiat earum delectus ut amet natus ducimus impedit optio laboriosam dolores doloribus eligendi labore perspiciatis! Consectetur corrupti ea eius facilis soluta laudantium reiciendis exercitationem aut officia.",
       "iamge": "https://www.gj.mahidol.ac.th/main/wp-content/uploads/2024/10/หน้าปกเว็บ_3-7.png",
       "category": 3,
+      "categoryName": "knowledge of surgical diseases.",
       "isUsed": true
     },
     {
@@ -43,6 +46,7 @@
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus temporibus maxime vitae ducimus iste dolor, voluptas non accusamus eligendi sit reiciendis cupiditate, unde accusantium vero omnis deserunt eos esse dolorum mollitia, suscipit enim. Assumenda deleniti, animi placeat dolorem voluptatibus, magni similique libero quis ducimus et, id atque porro fuga cupiditate sapiente qui harum. Quo repellendus asperiores dicta necessitatibus ab, commodi exercitationem beatae maxime, rem dolorum amet non libero aliquam, fuga accusamus. Repellat eius, ipsa, fugiat earum delectus ut amet natus ducimus impedit optio laboriosam dolores doloribus eligendi labore perspiciatis! Consectetur corrupti ea eius facilis soluta laudantium reiciendis exercitationem aut officia.",
       "iamge": "https://www.gj.mahidol.ac.th/main/wp-content/uploads/2024/10/หน้าปกเว็บ_3-6-1024x726.png",
       "category": 3,
+      "categoryName": "knowledge of surgical diseases.",
       "isUsed": true
     },
     {
@@ -50,103 +54,115 @@
       "name": "การฝังเข็มความงาม",
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus temporibus maxime vitae ducimus iste dolor, voluptas non accusamus eligendi sit reiciendis cupiditate, unde accusantium vero omnis deserunt eos esse dolorum mollitia, suscipit enim. Assumenda deleniti, animi placeat dolorem voluptatibus, magni similique libero quis ducimus et, id atque porro fuga cupiditate sapiente qui harum. Quo repellendus asperiores dicta necessitatibus ab, commodi exercitationem beatae maxime, rem dolorum amet non libero aliquam, fuga accusamus. Repellat eius, ipsa, fugiat earum delectus ut amet natus ducimus impedit optio laboriosam dolores doloribus eligendi labore perspiciatis! Consectetur corrupti ea eius facilis soluta laudantium reiciendis exercitationem aut officia.",
       "iamge": "https://www.gj.mahidol.ac.th/main/tcm/cosmetic-acupuncture/",
-      "category" : 4,
-      "isUsed" : true
+      "category": 4,
+      "categoryName": "Knowledge of the Chinese Plan.",
+      "isUsed": true
     },
     {
       "id": 6,
       "name": "หยิน-หยาง",
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus temporibus maxime vitae ducimus iste dolor, voluptas non accusamus eligendi sit reiciendis cupiditate, unde accusantium vero omnis deserunt eos esse dolorum mollitia, suscipit enim. Assumenda deleniti, animi placeat dolorem voluptatibus, magni similique libero quis ducimus et, id atque porro fuga cupiditate sapiente qui harum. Quo repellendus asperiores dicta necessitatibus ab, commodi exercitationem beatae maxime, rem dolorum amet non libero aliquam, fuga accusamus. Repellat eius, ipsa, fugiat earum delectus ut amet natus ducimus impedit optio laboriosam dolores doloribus eligendi labore perspiciatis! Consectetur corrupti ea eius facilis soluta laudantium reiciendis exercitationem aut officia.",
       "iamge": "https://www.gj.mahidol.ac.th/main/wp-content/uploads/2023/11/2หน้าปกเว็บ-17-1024x726.png",
-      "category" : 4,
-      "isUsed" : true
+      "category": 4,
+      "categoryName": "Knowledge of the Chinese Plan.",
+      "isUsed": true
     },
     {
       "id": 7,
       "name": "การรักษาทางเวชศาสตร์ฟื้นฟูด้วยเลเซอร์กำลังสูง",
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus temporibus maxime vitae ducimus iste dolor, voluptas non accusamus eligendi sit reiciendis cupiditate, unde accusantium vero omnis deserunt eos esse dolorum mollitia, suscipit enim. Assumenda deleniti, animi placeat dolorem voluptatibus, magni similique libero quis ducimus et, id atque porro fuga cupiditate sapiente qui harum. Quo repellendus asperiores dicta necessitatibus ab, commodi exercitationem beatae maxime, rem dolorum amet non libero aliquam, fuga accusamus. Repellat eius, ipsa, fugiat earum delectus ut amet natus ducimus impedit optio laboriosam dolores doloribus eligendi labore perspiciatis! Consectetur corrupti ea eius facilis soluta laudantium reiciendis exercitationem aut officia.",
       "iamge": "https://www.gj.mahidol.ac.th/main/wp-content/uploads/2024/12/หน้าปกเว็บ_3-11-1024x726.png",
-      "category" : 5,
-      "isUsed" : true
+      "category": 5,
+      "categoryName": "Knowledge of Internal Medicine.",
+      "isUsed": true
     },
     {
       "id": 8,
       "name": "เหล้าเถื่อน ยาดองมรณะ",
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus temporibus maxime vitae ducimus iste dolor, voluptas non accusamus eligendi sit reiciendis cupiditate, unde accusantium vero omnis deserunt eos esse dolorum mollitia, suscipit enim. Assumenda deleniti, animi placeat dolorem voluptatibus, magni similique libero quis ducimus et, id atque porro fuga cupiditate sapiente qui harum. Quo repellendus asperiores dicta necessitatibus ab, commodi exercitationem beatae maxime, rem dolorum amet non libero aliquam, fuga accusamus. Repellat eius, ipsa, fugiat earum delectus ut amet natus ducimus impedit optio laboriosam dolores doloribus eligendi labore perspiciatis! Consectetur corrupti ea eius facilis soluta laudantium reiciendis exercitationem aut officia.",
       "iamge": "https://www.gj.mahidol.ac.th/main/wp-content/uploads/2024/11/หน้าปกเว็บ_3-10-1024x726.png",
-      "category" : 5,
-      "isUsed" : true
+      "category": 5,
+      "categoryName": "Knowledge of Internal Medicine.",
+      "isUsed": true
     },
     {
       "id": 9,
       "name": "ปอดอักเสบในเด็ก",
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus temporibus maxime vitae ducimus iste dolor, voluptas non accusamus eligendi sit reiciendis cupiditate, unde accusantium vero omnis deserunt eos esse dolorum mollitia, suscipit enim. Assumenda deleniti, animi placeat dolorem voluptatibus, magni similique libero quis ducimus et, id atque porro fuga cupiditate sapiente qui harum. Quo repellendus asperiores dicta necessitatibus ab, commodi exercitationem beatae maxime, rem dolorum amet non libero aliquam, fuga accusamus. Repellat eius, ipsa, fugiat earum delectus ut amet natus ducimus impedit optio laboriosam dolores doloribus eligendi labore perspiciatis! Consectetur corrupti ea eius facilis soluta laudantium reiciendis exercitationem aut officia.",
       "iamge": "https://www.gj.mahidol.ac.th/main/wp-content/uploads/2023/12/2หน้าปกเว็บ-20-300x213.png",
-      "category" : 6,
-      "isUsed" : true
+      "category": 6,
+      "categoryName": "knowledge of children",
+      "isUsed": true
     },
     {
       "id": 10,
       "name": "ภูมิแพ้สัตว์เลี้ยงที่มีขน",
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus temporibus maxime vitae ducimus iste dolor, voluptas non accusamus eligendi sit reiciendis cupiditate, unde accusantium vero omnis deserunt eos esse dolorum mollitia, suscipit enim. Assumenda deleniti, animi placeat dolorem voluptatibus, magni similique libero quis ducimus et, id atque porro fuga cupiditate sapiente qui harum. Quo repellendus asperiores dicta necessitatibus ab, commodi exercitationem beatae maxime, rem dolorum amet non libero aliquam, fuga accusamus. Repellat eius, ipsa, fugiat earum delectus ut amet natus ducimus impedit optio laboriosam dolores doloribus eligendi labore perspiciatis! Consectetur corrupti ea eius facilis soluta laudantium reiciendis exercitationem aut officia.",
       "iamge": "https://www.gj.mahidol.ac.th/main/wp-content/uploads/2023/03/10-1024x726.png",
-      "category" : 6,
-      "isUsed" : true
+      "category": 6,
+      "categoryName": "knowledge of children",
+      "isUsed": true
     },
     {
       "id": 11,
       "name": "ถุงน้ำรังไข่หลายใบ (PCOS)",
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus temporibus maxime vitae ducimus iste dolor, voluptas non accusamus eligendi sit reiciendis cupiditate, unde accusantium vero omnis deserunt eos esse dolorum mollitia, suscipit enim. Assumenda deleniti, animi placeat dolorem voluptatibus, magni similique libero quis ducimus et, id atque porro fuga cupiditate sapiente qui harum. Quo repellendus asperiores dicta necessitatibus ab, commodi exercitationem beatae maxime, rem dolorum amet non libero aliquam, fuga accusamus. Repellat eius, ipsa, fugiat earum delectus ut amet natus ducimus impedit optio laboriosam dolores doloribus eligendi labore perspiciatis! Consectetur corrupti ea eius facilis soluta laudantium reiciendis exercitationem aut officia.",
       "iamge": "https://www.gj.mahidol.ac.th/main/wp-content/uploads/2023/06/2หน้าปกเว็บ-8-300x213.png",
-      "category" : 7,
-      "isUsed" : true
+      "category": 7,
+      "categoryName": "Knowledge for Ladies.",
+      "isUsed": true
     },
     {
       "id": 12,
       "name": "ภาวะนอนไม่หลับ (Insomnia)",
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus temporibus maxime vitae ducimus iste dolor, voluptas non accusamus eligendi sit reiciendis cupiditate, unde accusantium vero omnis deserunt eos esse dolorum mollitia, suscipit enim. Assumenda deleniti, animi placeat dolorem voluptatibus, magni similique libero quis ducimus et, id atque porro fuga cupiditate sapiente qui harum. Quo repellendus asperiores dicta necessitatibus ab, commodi exercitationem beatae maxime, rem dolorum amet non libero aliquam, fuga accusamus. Repellat eius, ipsa, fugiat earum delectus ut amet natus ducimus impedit optio laboriosam dolores doloribus eligendi labore perspiciatis! Consectetur corrupti ea eius facilis soluta laudantium reiciendis exercitationem aut officia.",
       "iamge": "https://www.gj.mahidol.ac.th/main/wp-content/uploads/2022/06/หน้าปกเว็บ-14-300x213.png",
-      "category" : 8,
-      "isUsed" : true
+      "category": 8,
+      "categoryName": "Ear, nose and throat disease",
+      "isUsed": true
     },
     {
       "id": 13,
       "name": "ศาสตร์การแพทย์ทางเลือกกับการฟื้นฟูรักษาอาการ Long COVID",
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus temporibus maxime vitae ducimus iste dolor, voluptas non accusamus eligendi sit reiciendis cupiditate, unde accusantium vero omnis deserunt eos esse dolorum mollitia, suscipit enim. Assumenda deleniti, animi placeat dolorem voluptatibus, magni similique libero quis ducimus et, id atque porro fuga cupiditate sapiente qui harum. Quo repellendus asperiores dicta necessitatibus ab, commodi exercitationem beatae maxime, rem dolorum amet non libero aliquam, fuga accusamus. Repellat eius, ipsa, fugiat earum delectus ut amet natus ducimus impedit optio laboriosam dolores doloribus eligendi labore perspiciatis! Consectetur corrupti ea eius facilis soluta laudantium reiciendis exercitationem aut officia.",
       "iamge": "https://www.gj.mahidol.ac.th/main/wp-content/uploads/2023/01/หน้าปกเว็บ-35-768x545.png",
-      "category" : 9,
-      "isUsed" : true
+      "category": 9,
+      "categoryName": "Thai traditional knowledge",
+      "isUsed": true
     },
     {
       "id": 14,
       "name": "ภาวะ Long Covid กับอาการ ไอ เหนื่อยหอบ",
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus temporibus maxime vitae ducimus iste dolor, voluptas non accusamus eligendi sit reiciendis cupiditate, unde accusantium vero omnis deserunt eos esse dolorum mollitia, suscipit enim. Assumenda deleniti, animi placeat dolorem voluptatibus, magni similique libero quis ducimus et, id atque porro fuga cupiditate sapiente qui harum. Quo repellendus asperiores dicta necessitatibus ab, commodi exercitationem beatae maxime, rem dolorum amet non libero aliquam, fuga accusamus. Repellat eius, ipsa, fugiat earum delectus ut amet natus ducimus impedit optio laboriosam dolores doloribus eligendi labore perspiciatis! Consectetur corrupti ea eius facilis soluta laudantium reiciendis exercitationem aut officia.",
       "iamge": "https://www.gj.mahidol.ac.th/main/wp-content/uploads/2022/12/หน้าปกเว็บ-34.png",
-      "category" : 10,
-      "isUsed" : true
+      "category": 10,
+      "categoryName": "COVID19 Knowledge",
+      "isUsed": true
     },
     {
       "id": 12,
       "name": "มารดาที่เป็น COVID–19 สามารถเลี้ยงลูกด้วยนมแม่ได้หรือไ",
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus temporibus maxime vitae ducimus iste dolor, voluptas non accusamus eligendi sit reiciendis cupiditate, unde accusantium vero omnis deserunt eos esse dolorum mollitia, suscipit enim. Assumenda deleniti, animi placeat dolorem voluptatibus, magni similique libero quis ducimus et, id atque porro fuga cupiditate sapiente qui harum. Quo repellendus asperiores dicta necessitatibus ab, commodi exercitationem beatae maxime, rem dolorum amet non libero aliquam, fuga accusamus. Repellat eius, ipsa, fugiat earum delectus ut amet natus ducimus impedit optio laboriosam dolores doloribus eligendi labore perspiciatis! Consectetur corrupti ea eius facilis soluta laudantium reiciendis exercitationem aut officia.",
       "iamge": "https://www.gj.mahidol.ac.th/main/wp-content/uploads/2022/03/หน้าปกเว็บ-5-1024x726.png",
-      "category":10
+      "category": 10
     },
     {
       "id": 13,
       "name": "วัคซีนcovid-19 ในหญิงตั้งครรภ์ /ให้นมบุตร",
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus temporibus maxime vitae ducimus iste dolor, voluptas non accusamus eligendi sit reiciendis cupiditate, unde accusantium vero omnis deserunt eos esse dolorum mollitia, suscipit enim. Assumenda deleniti, animi placeat dolorem voluptatibus, magni similique libero quis ducimus et, id atque porro fuga cupiditate sapiente qui harum. Quo repellendus asperiores dicta necessitatibus ab, commodi exercitationem beatae maxime, rem dolorum amet non libero aliquam, fuga accusamus. Repellat eius, ipsa, fugiat earum delectus ut amet natus ducimus impedit optio laboriosam dolores doloribus eligendi labore perspiciatis! Consectetur corrupti ea eius facilis soluta laudantium reiciendis exercitationem aut officia.",
       "iamge": "https://www.gj.mahidol.ac.th/main/wp-content/uploads/2021/11/ปก%77eb-หญิงตั้งครรภ์-ที่มีอายุครรภ์ตั้งแต่-12--1024x726.png",
-      "category" : 10,
-      "isUsed" : true
+      "category": 10,
+      "categoryName": "COVID19 Knowledge",
+      "isUsed": true
     },
     {
       "id": 14,
       "name": "ต้อหิน…ภัยเงียบที่น่ากลัว",
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus temporibus maxime vitae ducimus iste dolor, voluptas non accusamus eligendi sit reiciendis cupiditate, unde accusantium vero omnis deserunt eos esse dolorum mollitia, suscipit enim. Assumenda deleniti, animi placeat dolorem voluptatibus, magni similique libero quis ducimus et, id atque porro fuga cupiditate sapiente qui harum. Quo repellendus asperiores dicta necessitatibus ab, commodi exercitationem beatae maxime, rem dolorum amet non libero aliquam, fuga accusamus. Repellat eius, ipsa, fugiat earum delectus ut amet natus ducimus impedit optio laboriosam dolores doloribus eligendi labore perspiciatis! Consectetur corrupti ea eius facilis soluta laudantium reiciendis exercitationem aut officia.",
       "iamge": "https://www.gj.mahidol.ac.th/main/wp-content/uploads/2021/03/ต้อหิน-1-300x213.png",
-      "category" : 11,
-      "isUsed" : true
+      "category": 11,
+      "categoryName": "Ophthalmic disease",
+      "isUsed": true
     }
   ]
-} 
+}

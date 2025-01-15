@@ -9,5 +9,7 @@ export interface IArticle{
     name : string,
     description : string,
     iamge : string,
-    isUsed : boolean
+    isUsed : boolean,
+    category: number,
+    categoryName: string,
 }

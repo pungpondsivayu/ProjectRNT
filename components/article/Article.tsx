@@ -19,7 +19,7 @@ function Article({ article }: Props) {
         style={{
           fontSize: hp(3),
         }}
-        className="font-semibold text-neutral-600 mb-3"
+        className="font-semibold text-neutral-600 mb-7"
       >
         Article
       </Text>
@@ -27,7 +27,7 @@ function Article({ article }: Props) {
         <MasonryList
           data={article}
           keyExtractor={(item): any => item.id}
-          numColumns={2}
+          numColumns={1}
           showsVerticalScrollIndicator={false}
           renderItem={({ item, i }: { item: any; i: number }) => (
             <ArticleCatd item={item} index={i} />

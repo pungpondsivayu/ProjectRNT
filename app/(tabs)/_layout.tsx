@@ -17,47 +17,45 @@ export default function TabLayout() {
   useReactNavigationDevTools(navigationRef);
   return (
     <Provider store={store}>
-      <>
-        <View
-          className="bg-white"
-          style={{
-            paddingTop: ios ? 56 : 16,
+      <View
+        className="bg-white"
+        style={{
+          paddingTop: ios ? 56 : 16,
+        }}
+      >
+        <Navbar />
+      </View>
+      <Tabs
+        screenOptions={{ tabBarActiveTintColor: "blue", headerShown: false }}
+      >
+        <Tabs.Screen
+          name="index"
+          options={{
+            title: "หน้าแรก",
+            tabBarIcon: ({ color }) => (
+              <HomeIcon size={hp(2.5)} strokeWidth={3} color="gray" />
+            ),
           }}
-        >
-          <Navbar />
-        </View>
-        <Tabs
-          screenOptions={{ tabBarActiveTintColor: "blue", headerShown: false }}
-        >
-          <Tabs.Screen
-            name="index"
-            options={{
-              title: "หน้าแรก",
-              tabBarIcon: ({ color }) => (
-                <HomeIcon size={hp(2.5)} strokeWidth={3} color="gray" />
-              ),
-            }}
-          />
-          <Tabs.Screen
-            name="article"
-            options={{
-              title: "บทความ",
-              tabBarIcon: ({ color }) => (
-                <BookOpenIcon size={hp(2.5)} strokeWidth={3} color="gray" />
-              ),
-            }}
-          />
-          <Tabs.Screen
-            name="history"
-            options={{
-              title: "ประวัติ",
-              tabBarIcon: ({ color }) => (
-                <QueueListIcon size={hp(2.5)} strokeWidth={3} color="gray" />
-              ),
-            }}
-          />
-        </Tabs>
-      </>
+        />
+        <Tabs.Screen
+          name="article"
+          options={{
+            title: "บทความ",
+            tabBarIcon: ({ color }) => (
+              <BookOpenIcon size={hp(2.5)} strokeWidth={3} color="gray" />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="history"
+          options={{
+            title: "ประวัติ",
+            tabBarIcon: ({ color }) => (
+              <QueueListIcon size={hp(2.5)} strokeWidth={3} color="gray" />
+            ),
+          }}
+        />
+      </Tabs>
     </Provider>
   );
 }
