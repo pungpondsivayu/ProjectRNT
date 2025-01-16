@@ -19,7 +19,9 @@ export const ArticleCategoryController = BaseApi.injectEndpoints({
           method: "GET",
         };
       },
-      providesTags: ["Article"],
+      providesTags: (result, error, Data) => [
+        { type: "Article", id: Data.activeCategory },
+      ],
       async onQueryStarted(queryArgument, { dispatch, queryFulfilled }) {
         try {
           const { data: response }: any = await queryFulfilled;
@@ -34,3 +36,4 @@ export const ArticleCategoryController = BaseApi.injectEndpoints({
 
 export const { useGetArticleCategoriesQuery, useGetArticleQuery } =
   ArticleCategoryController;
+  

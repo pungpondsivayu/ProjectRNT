@@ -21,10 +21,9 @@ export default function article() {
   const [searchArticle , setSearchArticle] = useState<string | undefined>("")
   const [category, setCategory] = useState<IArticleCategory[]>([]);
   const [article, setArtitle] = useState<IArticleCategory[]>([]);
-  const articldara = useSelector(selectAllsetArticle);
   const { currentData: categoryData, error: categoryDatacategoryError } =
     useGetArticleCategoriesQuery(null);
-  const { currentData: articleData, error: articleError } = useGetArticleQuery(
+  const { currentData: articleData, error: articleError , refetch: articleRefetch} = useGetArticleQuery(
     {activeCategory , searchArticle},
     {
       refetchOnMountOrArgChange: true,
@@ -52,8 +51,12 @@ export default function article() {
 
   useEffect(() => {
     GetArticles();
-  }, [articleData, activeCategory , searchArticle]);
+  }, [articleData]);
 
+
+  useEffect(() => {
+    articleRefetch()
+  }, [activeCategory , searchArticle]);
   return (
     <View className="flex-1 bg-white">
       <ScrollView
