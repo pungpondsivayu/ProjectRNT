@@ -10,6 +10,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+import { TabBar } from '@/components/layout/Tabbar';
 
 export default function TabLayout() {
   const ios  = Platform.OS === "ios"
@@ -27,32 +28,24 @@ export default function TabLayout() {
       </View>
       <Tabs
         screenOptions={{ tabBarActiveTintColor: "blue", headerShown: false }}
+        tabBar={(props) => <TabBar {...props} />}
       >
         <Tabs.Screen
           name="index"
           options={{
-            title: "หน้าแรก",
-            tabBarIcon: ({ color }) => (
-              <HomeIcon size={hp(2.5)} strokeWidth={3} color="gray" />
-            ),
+            title: "Home",
           }}
         />
         <Tabs.Screen
           name="article"
           options={{
-            title: "บทความ",
-            tabBarIcon: ({ color }) => (
-              <BookOpenIcon size={hp(2.5)} strokeWidth={3} color="gray" />
-            ),
+            title: "Article",
           }}
         />
         <Tabs.Screen
           name="history"
           options={{
-            title: "ประวัติ",
-            tabBarIcon: ({ color }) => (
-              <QueueListIcon size={hp(2.5)} strokeWidth={3} color="gray" />
-            ),
+            title: "History",
           }}
         />
       </Tabs>
