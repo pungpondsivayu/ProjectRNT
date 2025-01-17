@@ -1,6 +1,6 @@
 import { IArticle } from "@/@types/article/ArticleType";
-import {  Image, Pressable, Text, TouchableOpacity, View } from "react-native";
-import Animated, { FadeInDown , FadeOutDown } from "react-native-reanimated";
+import {  Image, Pressable, Text, View } from "react-native";
+import Animated, { FadeInDown } from "react-native-reanimated";
 import {
     widthPercentageToDP as wp,
     heightPercentageToDP as hp,
@@ -10,7 +10,6 @@ export default function ArticleCatd({item , index} : {
     item : IArticle,
     index : number
   }) {
-    const isEven = index % 2 == 0;
     return (
       item && (
         <Animated.View
@@ -62,24 +61,6 @@ export default function ArticleCatd({item , index} : {
                 12 Sep 2002
               </Text>
             </View>
-
-            {/* <Image
-            source={{
-              uri: item.iamge,
-            }}
-            style={{
-              width: "100%",
-              height: hp(25),
-              objectFit: "contain",
-            }}
-            className="bg-black/0"
-          />
-          <Text
-            style={{ fontSize: hp(1.5) }}
-            className="font-semibold ml-2 text-neutral-600"
-          >
-            {item.name.length > 40 ? item.name.slice(0, 40) + "..." : item.name}
-          </Text> */}
           </Pressable>
         </Animated.View>
       )

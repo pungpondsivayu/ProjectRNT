@@ -6,7 +6,9 @@ import { store } from "@/redux/store/store";
 export default function Layout() {
   return (
     // <Provider store={store}>
-      <Stack>
+      <Stack screenOptions={{
+        headerShown : false
+      }}>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       </Stack>
     // </Provider>

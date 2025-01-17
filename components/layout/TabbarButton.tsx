@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, GestureResponderEvent } from "react-native";
+import { View, Text, StyleSheet, GestureResponderEvent , Pressable} from "react-native";
 import React, { useEffect } from "react";
 import { PlatformPressable } from "@react-navigation/elements";
 import { icon } from "./icon";
@@ -52,7 +52,7 @@ const TabbarButton = ({
     }) 
   }, [scale , isFocused])
   return (
-    <PlatformPressable
+    <Pressable
       onPress={onPress}
       onLongPress={onLongPress}
       style={styles.tabberItem}
@@ -67,7 +67,7 @@ const TabbarButton = ({
       >
         {label}
       </Animated.Text>
-    </PlatformPressable>
+    </Pressable>
   );
 };
 

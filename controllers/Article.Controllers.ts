@@ -12,8 +12,10 @@ export const ArticleCategoryController = BaseApi.injectEndpoints({
     getArticle: builder.query({
       query: Data => {
         const { activeCategory:category , searchArticle:search } = Data
-        let param = `?category=${category}`
+        let param = ``
+        category != 1 ? param = `?category=${category}` : ""
         search ? param += `&name_like=${search}` : ""
+        category == 1 && search ? param = `?name_like=${search}` : ""
         return {
           url: `/article${param}`,
           method: "GET",

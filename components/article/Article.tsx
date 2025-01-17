@@ -30,7 +30,7 @@ function Article({ article }: Props) {
           numColumns={1}
           showsVerticalScrollIndicator={false}
           renderItem={({ item, i }: { item: any; i: number }) => (
-            <ArticleCatd item={item} index={i} />
+            <ArticleCatd item={item} index={i}/>
           )}
           onEndReachedThreshold={0.1}
         />

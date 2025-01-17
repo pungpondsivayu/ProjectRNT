@@ -1,9 +1,14 @@
-import { View, StyleSheet, LayoutChangeEvent } from "react-native";
+import { View, StyleSheet, LayoutChangeEvent, Platform } from "react-native";
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
-
 import TabbarButton from "./TabbarButton";
 import { useState } from "react";
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from "react-native-reanimated";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
+const ios = Platform.OS === "ios";
+
 export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
   const [dimemstions, setDimenstions] = useState({ height: 20, width: 100 });
 
@@ -88,7 +93,7 @@ export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
 const styles = StyleSheet.create({
   tabber: {
     position: "absolute",
-    bottom: 50,
+    bottom: ios ? hp(4) : hp(2),
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",

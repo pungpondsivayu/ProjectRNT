@@ -6,6 +6,7 @@ import {
 } from "react-native-responsive-screen";
 import { BellIcon } from "react-native-heroicons/outline";
 import Navbar from "@/components/layout/Navbar";
+import Service from "@/components/home/Service";
 
 function Home() {
   const ios  = Platform.OS === "ios"
@@ -24,9 +25,9 @@ function Home() {
           <View>
             <Text
               style={{ fontSize: hp(3.8) }}
-              className="font-semibold text-neutral-600"
+              className="font-semibold tesxt-neutral-600"
             >
-             Friends thinking  
+              Friends thinking
             </Text>
           </View>
           <Text
@@ -35,6 +36,9 @@ function Home() {
           >
             about <Text className="text-sky-600">health</Text>
           </Text>
+        </View>
+        <View className="mb-7">
+          <Service />
         </View>
       </ScrollView>
     </View>
