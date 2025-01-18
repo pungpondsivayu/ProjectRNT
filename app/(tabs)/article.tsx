@@ -3,8 +3,6 @@ import React, { useEffect, useState } from "react";
 import { MagnifyingGlassIcon } from "react-native-heroicons/outline";
 import { Formik } from "formik";
 import { IArticleCategory } from "@/@types/article/ArticleType";
-import { useSelector } from "react-redux";
-import { selectAllsetArticle } from "@/redux/slice/article.slice";
 import Categories from "@/components/article/Categories";
 import Article from "@/components/article/Article";
 import {

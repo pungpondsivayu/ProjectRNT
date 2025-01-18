@@ -5,21 +5,25 @@ import {
     heightPercentageToDP as hp,
   } from "react-native-responsive-screen";
 import Animated, { FadeInDown } from 'react-native-reanimated';
+import { useNavigation } from '@react-navigation/native';
+import { ServiceScreenNavigationProp, ServiceStackNavigatorParamList, WelcomeScreenNavigationProp } from '@/@types/routes';
 
 interface ServiceItem {
   name: string;
   icon: React.JSX.Element;
+  path: string
 }
 
 const ServiceCard = ({ item, index }: { item: ServiceItem; index: number }) => {
+  const naivgate = useNavigation<ServiceScreenNavigationProp>()
   const isEven = index % 3 == 0;
   return (
     <Animated.View
-    entering={FadeInDown.delay(index * 100)
-      .duration(600)
-      .springify()
-      .damping(15)}
-  >
+      entering={FadeInDown.delay(index * 100)
+        .duration(600)
+        .springify()
+        .damping(15)}
+    >
       <Pressable
         style={{
           width: "100%",
@@ -27,6 +31,7 @@ const ServiceCard = ({ item, index }: { item: ServiceItem; index: number }) => {
           paddingRight: 8,
         }}
         className="flex justify-center mb-4"
+        onPress={() => naivgate.navigate("Cheakdisease")}
       >
         <View
           style={{
@@ -40,7 +45,7 @@ const ServiceCard = ({ item, index }: { item: ServiceItem; index: number }) => {
             style={{ fontSize: hp(1.5) }}
             className="font-semibold ml-2 text-neutral-600"
           >
-            dasdsa
+            {item.name}
           </Text>
         </View>
       </Pressable>
