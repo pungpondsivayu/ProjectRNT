@@ -7,7 +7,8 @@ export const ArticleCategoryController = BaseApi.injectEndpoints({
       query: () => ({
         url: `/category`,
         method: "GET",
-      }), providesTags: ["Categories"],
+      }), 
+      providesTags: ["Categories"],
     }),
     getArticle: builder.query({
       query: Data => {

@@ -11,17 +11,3 @@ export type WelcomeScreenNavigationProp = NativeStackNavigationProp<
   "(tabs)"
 >;
 // end welcome screen navigate
-
-
-
-// service screen navigate
-export type ServiceStackNavigatorParamList = {
-  "Cheakdisease": undefined;
-  "Followmedication": undefined;
-  "Moodtrack": undefined;
-  "Searchhospital": undefined;
-};
-
-export type ServiceScreenNavigationProp =
-  NativeStackNavigationProp<ServiceStackNavigatorParamList>;
-// end service screen navigate

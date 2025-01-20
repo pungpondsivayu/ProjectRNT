@@ -5,9 +5,8 @@ import { Platform } from "react-native";
 export const BaseApi = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    // baseUrl: Platform.OS === "android" ? BASE_BACKEND_URL : BASE_BACKEND_URL_IOS,
-    baseUrl: BASE_BACKEND_URL,
+    baseUrl: Platform.OS === "android" ? BASE_BACKEND_URL : BASE_BACKEND_URL_IOS,
   }),
-  tagTypes: ["Categories", "Article"],
+  tagTypes: ["Categories", "Article" , "Moodtrack"],
   endpoints: (builder) => ({}),
 });

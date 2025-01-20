@@ -1,6 +1,6 @@
 import { View, Text, Platform, ScrollView } from 'react-native'
 import React from 'react'
-import Navbar from '@/components/layout/Navbar';
+import Animated  from "react-native-reanimated";
 
 const history = () => {
   const ios  = Platform.OS === "ios"

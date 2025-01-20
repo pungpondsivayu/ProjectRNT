@@ -1,45 +1,40 @@
-import Navbar from '@/components/layout/Navbar';
 import { store } from '@/redux/store/store';
 import { Tabs, useNavigationContainerRef } from 'expo-router';
-import { Platform, View } from 'react-native';
+import { Platform  } from 'react-native';
 import { Provider } from 'react-redux';
 import { useReactNavigationDevTools } from '@dev-plugins/react-navigation';
-import { TabBar } from '@/components/layout/Tabbar';
+import { TabBar } from '@/components/layout/moodtrack/Tabbar';
 
 export default function TabLayout() {
-  const ios  = Platform.OS === "ios";
+  const ios  = Platform.OS === "ios"
   const navigationRef = useNavigationContainerRef();
   useReactNavigationDevTools(navigationRef);
   return (
     <Provider store={store}>
-      <View
-        className="bg-white"
-        style={{
-          paddingTop: ios ? 56 : 16,
-        }}
-      >
-        <Navbar />
-      </View>
       <Tabs
-        screenOptions={{ tabBarActiveTintColor: "blue", headerShown: false }}
+        screenOptions={{
+          tabBarActiveTintColor: "blue",
+          headerShown: false,
+          headerTitle: "Moodtracker",
+        }}
         tabBar={(props) => <TabBar {...props} />}
       >
         <Tabs.Screen
           name="index"
           options={{
-            title: "Home",
+            title: "Chart",
           }}
         />
         <Tabs.Screen
-          name="article"
+          name="upsert"
           options={{
-            title: "Article",
+            title: "Add",
           }}
         />
         <Tabs.Screen
-          name="history"
+          name="calendar"
           options={{
-            title: "History",
+            title: "Calendar",
           }}
         />
       </Tabs>

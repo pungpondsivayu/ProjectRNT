@@ -5,17 +5,17 @@ import {
     heightPercentageToDP as hp,
   } from "react-native-responsive-screen";
 import Animated, { FadeInDown } from 'react-native-reanimated';
-import { useNavigation } from '@react-navigation/native';
-import { ServiceScreenNavigationProp, ServiceStackNavigatorParamList, WelcomeScreenNavigationProp } from '@/@types/routes';
+import { Link, router } from 'expo-router';
 
 interface ServiceItem {
   name: string;
   icon: React.JSX.Element;
-  path: string
+  path: any
 }
 
 const ServiceCard = ({ item, index }: { item: ServiceItem; index: number }) => {
-  const naivgate = useNavigation<ServiceScreenNavigationProp>()
+
+  const path = "moodtrack/index"
   const isEven = index % 3 == 0;
   return (
     <Animated.View
@@ -24,14 +24,16 @@ const ServiceCard = ({ item, index }: { item: ServiceItem; index: number }) => {
         .springify()
         .damping(15)}
     >
-      <Pressable
+      <Link
+        href={{
+          pathname: item.path,
+        }}
         style={{
           width: "100%",
           paddingLeft: 8,
           paddingRight: 8,
         }}
         className="flex justify-center mb-4"
-        onPress={() => naivgate.navigate("Cheakdisease")}
       >
         <View
           style={{
@@ -48,7 +50,7 @@ const ServiceCard = ({ item, index }: { item: ServiceItem; index: number }) => {
             {item.name}
           </Text>
         </View>
-      </Pressable>
+      </Link>
     </Animated.View>
   );
 };

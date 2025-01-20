@@ -3,7 +3,7 @@ import React from 'react'
 
 const index = () => {
   return (
-    <View>
+    <View className='bg-red-200 flex-1 justify-center items-center'>
       <Text>index</Text>
     </View>
   )

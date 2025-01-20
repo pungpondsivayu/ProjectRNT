@@ -1,12 +1,12 @@
 import { View, StyleSheet, LayoutChangeEvent, Platform } from "react-native";
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
-import TabbarButton from "./TabbarButton";
 import { useState } from "react";
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from "react-native-reanimated";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+import TabbarButton from "./TabbarButton";
 const ios = Platform.OS === "ios";
 
 export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
