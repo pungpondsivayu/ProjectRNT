@@ -46,21 +46,21 @@ const upsert = () => {
     {
       id: 1,
       name: "Happy",
-      emoji: "../../assets/images/mood/Happy.png",
+      emoji: require("../../assets/images/mood/Happy.png"),
       animation: require("../../assets/animation/Mood/Happy.json"),
       color: ["#ffad00", "#ffbe00", "#fbff00"],
     },
     {
       id: 2,
       name: "Sad",
-      emoji: "../../assets/images/mood/Sad.png",
+      emoji: require("../../assets/images/mood/Sad.png"),
       animation: require("../../assets/animation/Mood/Sad.json"),
       color: ["#ffca51", "#e3ff74", "#5af7fc"],
     },
     {
       id: 3,
       name: "Angry",
-      emoji: "../../assets/images/mood/Angry.png",
+      emoji: require("../../assets/images/mood/Angry.png"),
       animation: require("../../assets/animation/Mood/Angry.json"),
       color: ["#f6370a", "#ff7e00", "#fbff00"],
     },
@@ -152,9 +152,11 @@ const upsert = () => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{
           paddingBottom: 150,
+          paddingTop: 30,
         }}
+        className="bg-white rounded-3xl"
       >
-        <View className="mb-7 mx-4 flex flex-row justify-between ">
+        <View className="mb-7 mx-4 flex flex-row justify-between">
           <View className="flex flex-row gap-1">
             <Text
               className="font-semibold flex"
@@ -169,7 +171,7 @@ const upsert = () => {
             </View>
           </View>
           <TouchableOpacity onPress={toggleModal}>
-            <CalendarIcon size={hp(3)} />
+            <CalendarIcon size={hp(3)} color={"blue"} />
           </TouchableOpacity>
         </View>
         <View className="mb-7">
@@ -191,7 +193,7 @@ const upsert = () => {
                 <Text
                   className="font-semibold text-neutral-400 mb-2"
                   style={{
-                    fontSize: hp(1),
+                    fontSize: hp(1.5),
                   }}
                 >
                   How are you Feeling?
@@ -201,7 +203,7 @@ const upsert = () => {
                     multiline={true}
                     numberOfLines={50}
                     style={{
-                      height: 200,
+                      height: 180,
                       textAlignVertical: "top",
                       padding: 10,
                       fontSize: hp(1.8),
@@ -214,11 +216,6 @@ const upsert = () => {
                     onBlur={handleBlur("feeling")}
                     value={values.feeling}
                   />
-                  {errors.feeling && (
-                    <Text style={{ fontSize: hp(1.5), color: "red" }}>
-                      {errors.feeling}
-                    </Text>
-                  )}
                 </View>
               </View>
               <View className="flex items-center">
@@ -234,7 +231,7 @@ const upsert = () => {
                       MoodData[activeMood].color[2],
                     ]}
                     style={{
-                      padding: hp(3),
+                      padding: hp(1.5),
                       borderRadius: 100,
                     }}
                   >

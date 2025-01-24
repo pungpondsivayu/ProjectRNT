@@ -7,70 +7,11 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import { CalendarIcon, XMarkIcon } from 'react-native-heroicons/outline';
-import DateTimePicker, { DateType } from 'react-native-ui-datepicker';
-import Modal from 'react-native-modal';
-import dayjs from 'dayjs';
-import { useGetMoodByDateQuery } from '@/controllers/Moodtrack.Controllers';
-import { Imoodtrack } from '@/@types/moodtrack/Imoodtrack';
+import { CalendarIcon } from 'react-native-heroicons/outline';
+
+
 const index = () => {
   const screenWidth = Dimensions.get("window").width;
-  const [isModalVisible, setModalVisible] = useState(false);
-  const [date, setDate] = useState<DateType>(dayjs());
-  const { data, isError } = useGetMoodByDateQuery(date?.toString());
-  const [carlendatData, setarClendatData] = useState<Imoodtrack>();
-  const deviceWidth = Dimensions.get("window").width;
-  const deviceHeight = Dimensions.get("window").height;
-  const toggleModal = () => {
-    setModalVisible(!isModalVisible);
-  };
-
-  function Popup() {
-    return (
-      <Modal
-        isVisible={isModalVisible}
-        deviceWidth={deviceWidth}
-        deviceHeight={deviceHeight}
-        animationIn={"fadeInDown"}
-      >
-        <View
-          style={{ height: hp(50), borderRadius: 35 }}
-          className="bg-white p-9"
-        >
-          <TouchableOpacity
-            className="flex items-end mb-7"
-            onPress={toggleModal}
-          >
-            <XMarkIcon size={hp(3.5)} />
-          </TouchableOpacity>
-          <View
-            style={{
-              flex: 1,
-            }}
-          >
-            <DateTimePicker
-              mode="single"
-              date={date}
-              onChange={(params) => {
-                setDate(params.date);
-                console.log(params.date);
-                toggleModal();
-              }}
-              initialView="month"
-            />
-          </View>
-        </View>
-      </Modal>
-    );
-  }
-
-  function GetData(){
-    if(data && !isError){
-      setarClendatData(data)
-      console.log(data)
-    }
-  }
-
   const dataSet = {
     labels: ["1", "2", "3", "4", "5", "6"],
     datasets: [
@@ -84,13 +25,8 @@ const index = () => {
   };
 
 
-  useEffect(() => {
-    GetData();
-  }, [date])
-
   return (
     <View className="flex-1 bg-white">
-      <Popup />
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{
@@ -108,8 +44,8 @@ const index = () => {
             >
               Mood Chart
             </Text>
-            <TouchableOpacity onPress={toggleModal}>
-              <CalendarIcon size={hp(3)} />
+            <TouchableOpacity>
+              <CalendarIcon size={hp(3)} color={"blue"} />
             </TouchableOpacity>
           </View>
           <View className="mb-7">

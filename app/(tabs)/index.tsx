@@ -4,8 +4,6 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import { BellIcon } from "react-native-heroicons/outline";
-import Navbar from "@/components/layout/Navbar";
 import Service from "@/components/home/Service";
 
 function Home() {

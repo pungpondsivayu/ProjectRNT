@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, Image, TouchableOpacity, View, Text } from "react-native";
+import { ScrollView, Image, TouchableOpacity, View, Text, ImageSourcePropType } from "react-native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -9,7 +9,7 @@ import Animated, { FadeInRight } from "react-native-reanimated";
 interface IMood {
   id : number;
   name: string;
-  emoji: string;
+  emoji: ImageSourcePropType;
 }
 
 type Props = {
@@ -40,9 +40,7 @@ function MoodList({ mood ,activeMood , setActiveMood}: Props) {
               >
                 <View className={`p-[6px]`}>
                   <Image
-                    source={{
-                      uri: item.emoji,
-                    }}
+                    source={item.emoji}
                     style={{
                       width: wp(26),
                       height: hp(13),

@@ -10,37 +10,9 @@ import TabbarButton from "./TabbarButton";
 const ios = Platform.OS === "ios";
 
 export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
-  const [dimemstions, setDimenstions] = useState({ height: 20, width: 100 });
-
-  const buttonWodth = dimemstions.width / state.routes.length;
-
-  const onTabbarLayout = (e : LayoutChangeEvent) => {
-    setDimenstions({
-      height: e.nativeEvent.layout.height,
-      width: e.nativeEvent.layout.width,
-    });
-  }
-
-  const tabPotitionX = useSharedValue(0);
-
-  const aniamtionStyle = useAnimatedStyle(() => {
-    return {
-        transform : [{
-            translateX : tabPotitionX.value
-        }]
-    }
-  })
   
   return (
-    <View style={styles.tabber} onLayout={onTabbarLayout}>
-        <Animated.View style={[aniamtionStyle , {
-            position : "absolute",
-            backgroundColor : "#0284c7",
-            borderRadius : 30,
-            marginHorizontal : 12,
-            height : dimemstions.height - 15,
-            width : buttonWodth   -25
-        }]}/>
+    <View style={styles.tabber}>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const label : any =
@@ -53,9 +25,6 @@ export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
         const isFocused = state.index === index;
 
         const onPress = () => {
-            tabPotitionX.value = withSpring(buttonWodth * index, {
-              duration: 1500,
-            });
           const event = navigation.emit({
             type: "tabPress",
             target: route.key,

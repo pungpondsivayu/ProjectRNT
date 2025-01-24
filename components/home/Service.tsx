@@ -20,7 +20,7 @@ const ServiceData = [
     path : "/searchhospital"
   },
   {
-    name: "Mood tracker",
+    name: "Mental Health Trackeแr",
     icon: <BellIcon size={hp(4)} color="gray" />,
     path : "/moodtrack"
   },

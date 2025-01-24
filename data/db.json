@@ -212,9 +212,15 @@
   "mood": [
     {
       "id": 1,
-      "mood": "Happy",
-      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus temporibus maxime vitae ducimus iste dolor, voluptas non accusamus eligendi sit reiciendis cupiditate, unde accusantium vero omnis deserunt eos esse dolorum mollitia, suscipit enim. Assumenda deleniti, animi placeat dolorem voluptatibus, magni similique libero quis ducimus et, id atque porro fuga cupiditate sapiente qui harum. Quo repellendus asperiores dicta necessitatibus ab, commodi exercitationem beatae maxime, rem dolorum amet non libero aliquam, fuga accusamus. Repellat eius, ipsa, fugiat earum delectus ut amet natus ducimus impedit optio laboriosam dolores doloribus eligendi labore perspiciatis! Consectetur corrupti ea eius facilis soluta laudantium reiciendis exercitationem aut officia.",
-      "date": "2025-05-28"
+      "date": "2025-01-20",
+      "mood": "Sad",
+      "feeling": "Lonely and missing friends",
+      "stress_level": 7,
+      "sleep_hours": 6,
+      "exercise_minutes": 20,
+      "social_interaction_score": 3,
+      "trigger": "No social interaction for the day",
+      "notes": "Consider joining group activities to feel more connected."
     }
   ]
 }

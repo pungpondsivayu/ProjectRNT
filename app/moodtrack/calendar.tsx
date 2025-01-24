@@ -6,6 +6,10 @@ import {
 } from "react-native";
 import React from "react";
 import { CalendarIcon } from "react-native-heroicons/outline";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 
 const CalendarWithMonthYearPicker = () => {
 
@@ -20,7 +24,7 @@ const CalendarWithMonthYearPicker = () => {
             Mood Calendar
           </Text>
           <TouchableOpacity>
-            <CalendarIcon size={25} />
+            <CalendarIcon size={hp(3)} color={"blue"} />
           </TouchableOpacity>
         </View>
       </ScrollView>
