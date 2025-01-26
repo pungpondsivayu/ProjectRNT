@@ -16,7 +16,7 @@ function Home() {
           paddingBottom: 50,
         }}
       >
-        <View className="mx-4 mb-7">
+        <View className="mb-7 mx-4">
           <Text style={{ fontSize: hp(1.7) }} className="text-neutral-600">
             Hello, Pungpond!
           </Text>

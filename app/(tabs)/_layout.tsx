@@ -21,7 +21,7 @@ export default function TabLayout() {
         <Navbar />
       </View>
       <Tabs
-        screenOptions={{ tabBarActiveTintColor: "blue", headerShown: false }}
+        screenOptions={{ tabBarActiveTintColor: "blue", headerShown: false }} 
         tabBar={(props) => <TabBar {...props} />}
       >
         <Tabs.Screen

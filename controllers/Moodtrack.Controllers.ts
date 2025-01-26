@@ -12,19 +12,19 @@ export const MoodtrackController = BaseApi.injectEndpoints({
         body: {
           ...Data,
         },
-        providesTags: ["Moodtrack"],
+        invalidatesTags : ["Moodtrack"]
       }),
     }),
-    GetMoodByDate: builder.query({
-      query: (data) => {
-        const value = parseDateByMode(data , "getfullmonth")
+    GetMood: builder.query({
+      query: () => {
         return {
-          url: `/mood?date_like=${value}`,
+          url: `/mood`,
           method: "GET",
         };
       },
+      providesTags : ["Moodtrack"]
     }),
   }),
 });
 
-export const { useAddMoodMutation, useGetMoodByDateQuery } = MoodtrackController;
+export const { useAddMoodMutation, useGetMoodQuery } = MoodtrackController;

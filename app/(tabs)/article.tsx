@@ -62,6 +62,7 @@ export default function article() {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{
           paddingBottom: 50,
+          paddingHorizontal : 16
         }}
       >
         <Formik
@@ -69,7 +70,7 @@ export default function article() {
           onSubmit={(values) => setSearchArticle(values.searchAricle)}
         >
           {({ handleChange, handleBlur, handleSubmit, values }) => (
-            <View className="mx-4 flex-row items-center rounded-full bg-black/5 p-[6px] mb-7">
+            <View className="flex-row items-center rounded-full bg-black/5 p-[6px] mb-7">
               <TextInput
                 placeholder="Search any article"
                 placeholderTextColor="gray"

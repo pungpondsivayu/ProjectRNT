@@ -30,6 +30,7 @@ import { parseDateByMode } from "@/helpers/controller/date/GetDate";
 import { Imoodtrack } from "@/@types/moodtrack/Imoodtrack";
 import { useAddMoodMutation } from "@/controllers/Moodtrack.Controllers";
 import { useRouter } from "expo-router";
+
 const upsert = () => {
   const [activeMood, setActiveMood] = useState<number>(0);
   const [isModalVisible, setModalVisible] = useState(false);
@@ -37,6 +38,7 @@ const upsert = () => {
   const [AddMood] = useAddMoodMutation();
   const deviceWidth = Dimensions.get("window").width;
   const deviceHeight = Dimensions.get("window").height;
+  
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
@@ -48,14 +50,14 @@ const upsert = () => {
       name: "Happy",
       emoji: require("../../assets/images/mood/Happy.png"),
       animation: require("../../assets/animation/Mood/Happy.json"),
-      color: ["#ffad00", "#ffbe00", "#fbff00"],
+      color: ["#ff8200", "#ffb500", "#fffa00"],
     },
     {
       id: 2,
       name: "Sad",
       emoji: require("../../assets/images/mood/Sad.png"),
       animation: require("../../assets/animation/Mood/Sad.json"),
-      color: ["#ffca51", "#e3ff74", "#5af7fc"],
+      color: ["#c76600", "#ffba00", "#fffb2b"],
     },
     {
       id: 3,
@@ -69,7 +71,7 @@ const upsert = () => {
   const initialValues: Imoodtrack = {
     mood: MoodData[activeMood].name,
     feeling: "",
-    date: parseDateByMode(date, "getfulldate"),
+    date: parseDateByMode(date?.toString(), "getfulldate"),
   };
 
   async function HandleSubmit(values: Imoodtrack) {
@@ -153,6 +155,8 @@ const upsert = () => {
         contentContainerStyle={{
           paddingBottom: 150,
           paddingTop: 30,
+          paddingHorizontal : 16
+
         }}
         className="bg-white rounded-3xl"
       >

@@ -17,7 +17,7 @@ export default function Layout() {
         headerShown : headerStatus,
       }}>
         <Stack.Screen name="(tabs)" options={{ headerShown: false , headerTitle : "Home" }} />
-      </Stack>
+        </Stack>
     // </Provider>
   );
 }

@@ -17,9 +17,13 @@ const CalendarWithMonthYearPicker = () => {
     <View className="flex-1 bg-white">
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ paddingBottom: 50, paddingTop: 30 }}
+        contentContainerStyle={{
+          paddingBottom: 50,
+          paddingTop: 30,
+          paddingHorizontal: 16,
+        }}
       >
-        <View className="mb-7 mx-4 flex flex-row justify-between ">
+        <View className="mb-7 flex flex-row justify-between ">
           <Text className="font-semibold" style={{ fontSize: 18 }}>
             Mood Calendar
           </Text>
