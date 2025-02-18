@@ -1,13 +1,18 @@
-import { View, Text, ScrollView, Image, Platform } from "react-native";
+import { View, Text, ScrollView, Image, Platform, TouchableOpacity } from "react-native";
 import React from "react";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import Service from "@/components/home/Service";
+import { useRouter } from "expo-router";
 
 function Home() {
-  const ios  = Platform.OS === "ios"
+  //use hook
+  const router = useRouter();
+
+  //setting value
+  const ios = Platform.OS === "ios";
   return (
     <View className="flex-1 bg-white">
       <ScrollView
@@ -37,6 +42,15 @@ function Home() {
         </View>
         <View className="mb-7">
           <Service />
+        </View>
+        <View>
+          <TouchableOpacity
+            onPress={() => {
+              router.push("/auth");
+            }}
+          >
+            <Text>Auth</Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </View>

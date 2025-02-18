@@ -32,18 +32,15 @@ import { useAddMoodMutation } from "@/controllers/Moodtrack.Controllers";
 import { useRouter } from "expo-router";
 
 const upsert = () => {
+  //use hook
+  const router = useRouter()
+  
+  //setting value
   const [activeMood, setActiveMood] = useState<number>(0);
   const [isModalVisible, setModalVisible] = useState(false);
   const [date, setDate] = useState<DateType>(dayjs());
-  const [AddMood] = useAddMoodMutation();
   const deviceWidth = Dimensions.get("window").width;
   const deviceHeight = Dimensions.get("window").height;
-  
-  const toggleModal = () => {
-    setModalVisible(!isModalVisible);
-  };
-  const router = useRouter()
-
   const MoodData = [
     {
       id: 1,
@@ -67,6 +64,15 @@ const upsert = () => {
       color: ["#f6370a", "#ff7e00", "#fbff00"],
     },
   ];
+  
+  //use query
+  const [AddMood] = useAddMoodMutation();
+  
+
+  //function
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
 
   const initialValues: Imoodtrack = {
     mood: MoodData[activeMood].name,

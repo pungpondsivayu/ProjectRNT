@@ -222,6 +222,17 @@
       "trigger": "No social interaction for the day"
     },
     {
+      "id": "1",
+      "date": "2025-01-20",
+      "mood": "Sad",
+      "feeling": "Lonely and missing friends",
+      "stress_level": 7,
+      "sleep_hours": 6,
+      "exercise_minutes": 20,
+      "social_interaction_score": 3,
+      "trigger": "No social interaction for the day"
+    },
+    {
       "id": "2",
       "date": "2025-01-21",
       "mood": "Happy",
@@ -462,10 +473,100 @@
       "notes": "Practice patience and focus on what you can control."
     },
     {
-      "id": "6a28",
-      "Mood": "Happy",
-      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus temporibus maxime. ",
-      "datetime": "2025-05-28"
+      "id": "22",
+      "date": "2025-02-11",
+      "mood": "Happy",
+      "feeling": "Had a great conversation with an old friend",
+      "stress_level": 2,
+      "sleep_hours": 7,
+      "exercise_minutes": 40,
+      "social_interaction_score": 9,
+      "trigger": "Unexpected call from an old friend",
+      "notes": "Stay in touch with old friends more often."
+    },
+    {
+      "id": "23",
+      "date": "2025-02-12",
+      "mood": "Tired",
+      "feeling": "Drained from a long workday",
+      "stress_level": 6,
+      "sleep_hours": 5,
+      "exercise_minutes": 15,
+      "social_interaction_score": 4,
+      "trigger": "Too many meetings",
+      "notes": "Try to schedule fewer meetings or take breaks in between."
+    },
+    {
+      "id": "24",
+      "date": "2025-02-13",
+      "mood": "Hopeful",
+      "feeling": "Excited about a new opportunity",
+      "stress_level": 3,
+      "sleep_hours": 8,
+      "exercise_minutes": 35,
+      "social_interaction_score": 7,
+      "trigger": "Received a promising job lead",
+      "notes": "Prepare well for the next steps."
+    },
+    {
+      "id": "25",
+      "date": "2025-02-14",
+      "mood": "Grateful",
+      "feeling": "Appreciative of loved ones",
+      "stress_level": 2,
+      "sleep_hours": 7,
+      "exercise_minutes": 30,
+      "social_interaction_score": 9,
+      "trigger": "Valentine’s Day celebration",
+      "notes": "Cherish the relationships in life."
+    },
+    {
+      "id": "26",
+      "date": "2025-02-15",
+      "mood": "Stressed",
+      "feeling": "Overwhelmed by deadlines",
+      "stress_level": 8,
+      "sleep_hours": 5,
+      "exercise_minutes": 20,
+      "social_interaction_score": 3,
+      "trigger": "Upcoming work deadline",
+      "notes": "Break tasks into smaller steps and focus on progress."
+    },
+    {
+      "id": "27",
+      "date": "2025-02-16",
+      "mood": "Excited",
+      "feeling": "Looking forward to a weekend trip",
+      "stress_level": 3,
+      "sleep_hours": 8,
+      "exercise_minutes": 50,
+      "social_interaction_score": 9,
+      "trigger": "Planned a fun getaway",
+      "notes": "Pack essentials and prepare for a great time."
+    },
+    {
+      "id": "28",
+      "date": "2025-02-17",
+      "mood": "Relaxed",
+      "feeling": "Enjoyed a quiet evening",
+      "stress_level": 2,
+      "sleep_hours": 7,
+      "exercise_minutes": 30,
+      "social_interaction_score": 6,
+      "trigger": "Spent time meditating",
+      "notes": "Make meditation a daily habit."
+    },
+    {
+      "id": "29",
+      "date": "2025-02-18",
+      "mood": "Frustrated",
+      "feeling": "Annoyed by technical difficulties",
+      "stress_level": 5,
+      "sleep_hours": 6,
+      "exercise_minutes": 25,
+      "social_interaction_score": 4,
+      "trigger": "Computer crashed while working",
+      "notes": "Look into better backup solutions."
     }
   ]
 }

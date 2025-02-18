@@ -13,11 +13,20 @@ export default function Layout() {
   
   return (
     // <Provider store={store}>
-      <Stack screenOptions={{
-        headerShown : headerStatus,
-      }}>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false , headerTitle : "Home" }} />
-        </Stack>
+    <Stack
+      screenOptions={{
+        headerShown: headerStatus,
+      }}
+    >
+      <Stack.Screen
+        name="(tabs)"
+        options={{ headerShown: false, headerTitle: "Home" }}
+      />
+        <Stack.Screen
+        name="auth"
+        options={{ headerShown: false, headerTitle: "auth" }}
+      />
+    </Stack>
     // </Provider>
   );
 }

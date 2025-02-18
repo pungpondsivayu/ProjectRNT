@@ -7,12 +7,11 @@ import {
 } from "react-native-responsive-screen";
 import Animated, { BounceIn } from "react-native-reanimated";
 import { useNavigation } from "@react-navigation/native";
-import { WelcomeScreenNavigationProp } from "@/@types/routes";
+import { router } from "expo-router";
 
 const index = () => {
-  const navigate = useNavigation<WelcomeScreenNavigationProp>();
-  setTimeout(() => {
-    navigate.navigate("(tabs)")
+ setTimeout(() => {
+    router.push("/auth")
   }, 2000);
 
   return (

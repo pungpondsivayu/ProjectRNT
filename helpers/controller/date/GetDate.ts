@@ -1,4 +1,4 @@
-export function parseDateByMode(dateString: string | any, mode: "getdate" | "getmonth" | "getyear" | "gethours" | "getminutes" | "getseconds" | "getmilliseconds" | "getday" | "toisostring" | "tolocalestring" | "getfullyear" | "getfullmonth" | "getfulldate" | "getstartofweek" | "getendofweek"): string | number | null {
+export function parseDateByMode(dateString: string, mode: "getdate" | "getmonth" | "getyear" | "gethours" | "getminutes" | "getseconds" | "getmilliseconds" | "getday" | "toisostring" | "tolocalestring" | "getfullyear" | "getfullmonth" | "getfulldate" | "getstartofweek" | "getendofweek" | "getstartofmonth" | "getendofmonth" | "getstartofyear" | "getendofyear"): string | number | null {
   // Parse the input date string into a Date object
   const date = new Date(dateString);
 
@@ -63,7 +63,42 @@ export function parseDateByMode(dateString: string | any, mode: "getdate" | "get
       return `${endOfWeek.getFullYear()}-${(endOfWeek.getMonth() + 1).toString().padStart(2, '0')}-${endOfWeek.getDate().toString().padStart(2, '0')}`; // Returns "YYYY-MM-DD"
     }
 
+    case "getstartofmonth": {
+      const startOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
+      return `${startOfMonth.getFullYear()}-${(startOfMonth.getMonth() + 1).toString().padStart(2, '0')}-${startOfMonth.getDate().toString().padStart(2, '0')}`; // Returns "YYYY-MM-DD"
+    }
+
+    case "getendofmonth": {
+      const endOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+      return `${endOfMonth.getFullYear()}-${(endOfMonth.getMonth() + 1).toString().padStart(2, '0')}-${endOfMonth.getDate().toString().padStart(2, '0')}`; // Returns "YYYY-MM-DD"
+    }
+
+    case "getstartofyear": {
+      return `${date.getFullYear()}-01-01`; // Returns "YYYY-01-01"
+    }
+
+    case "getendofyear": {
+      return `${date.getFullYear()}-12-31`; // Returns "YYYY-12-31"
+    }
+
     default:
       return null; // Return null if the mode is not recognized
   }
+}
+
+
+export function getDayPosition(startDateStr: string, targetDateStr: string): number {
+  // แปลงสตริงวันที่เป็น Date object
+  const startDate = new Date(startDateStr);
+  const targetDate = new Date(targetDateStr);
+
+  // ตรวจสอบว่า targetDate อยู่ในช่วงของสัปดาห์หรือไม่
+  if (targetDate < startDate) {
+      throw new Error("Target date must be on or after the start date.");
+  }
+
+  // คำนวณลำดับของวัน
+  const dayPosition = (targetDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24) + 1;
+
+  return Math.floor(dayPosition); // ปัดค่าทศนิยมทิ้ง
 }

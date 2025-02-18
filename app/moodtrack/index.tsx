@@ -11,54 +11,85 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
 } from "react-native-heroicons/outline";
-import { processWeeklyData } from "@/helpers/controller/date/ProcessDataChart";
 import { useGetMoodQuery } from "@/controllers/Moodtrack.Controllers";
-
-enum Period {
-  week = "Week",
-}
+import { ProcessDataChart } from "@/helpers/controller/Moottrack/ProcessDataChart";
 
 const index = () => {
-  const [chartPeriod, setChartPeriod] = useState<Period>(Period.week);
+  //useHook
+
+  //setting value
+  const Period: string[] = ["Daily", "Weekly", "Monthly" , "Yearly"];
+  const [chartPeriod, setChartPeriod] = useState<string>("Weekly");
+  const [chartPeriodSelected, setChartPeriodSelected] = useState<number>(
+    Period.indexOf(chartPeriod)
+  );
+  const [dateTitle, setDatetitle] = useState<string>("");
   const [chartData, setChartData] = useState<barDataItem[]>([]);
   const [currenDate, setCurrenDate] = useState<Date>(new Date());
   const [startDate, setStartDate] = useState<Date>(new Date());
   const [endDate, setEndDate] = useState<Date>(new Date());
   const [chartKey, setChartKey] = useState<number>(0);
+
+  //use query
   const { data, error } = useGetMoodQuery(null);
 
+  //function
   function FetchData() {
-    if (chartPeriod == Period.week) {
-      const { startofWeek, endofWeek } = GetWeek(currenDate);
-      setStartDate((prevDate) => (prevDate = new Date(startofWeek)));
-      setEndDate((prevDate) => (prevDate = new Date(endofWeek))); 
-      const ChartData = processWeeklyData(data, startDate.toString(), endDate.toString());
-      setChartData(ChartData)
+    const { startDate, endDate } = GetDateRamge(currenDate);
+    const ChartData = ProcessDataChart(
+      data,
+      startDate.toString(),
+      endDate.toString(),
+      chartPeriod
+    );
+    if (ChartData) {
+      setChartData(ChartData);
       setChartKey((prev) => prev + 1);
     }
   }
 
-  function GetWeek(date: Date) {
-    const startofWeek: any = parseDateByMode(date.toString(), "getstartofweek");
-    const endofWeek: any = parseDateByMode(date.toString(), "getendofweek");
-    return {
-      startofWeek,
-      endofWeek,
-    };
+  function GetDateRamge(date: Date) {
+    let startDate: any;
+    let endDate: any;
+    if (chartPeriod == "Weekly") {
+      startDate = parseDateByMode(date.toString(), "getstartofweek");
+      endDate = parseDateByMode(date.toString(), "getendofweek");
+    } else if (chartPeriod == "Daily") {
+      startDate = parseDateByMode(date.toString(), "getstartofmonth");
+      endDate = parseDateByMode(date.toString(), "getendofmonth");
+    } else if (chartPeriod == "Monthly") {
+      startDate = parseDateByMode(date.toString(), "getstartofyear");
+      endDate = parseDateByMode(date.toString(), "getendofyear");
+    }else if(chartPeriod == "Yearly"){
+      startDate = parseDateByMode(date.toString(), "getfullyear");
+      endDate = parseDateByMode(date.toString(), "getfullyear");
+    }
+    setStartDate((prevDate) => (prevDate = new Date(startDate)));
+    setEndDate((prevDate) => (prevDate = new Date(endDate)));
+    return { startDate, endDate };
   }
 
   function handlePrevDate() {
-    setCurrenDate(new Date(currenDate.setDate(currenDate.getDate() - 7)));
+    if (chartPeriod == "Weekly")
+      setCurrenDate(new Date(currenDate.setDate(currenDate.getDate() - 7)));
+    else if (chartPeriod == "Daily")
+      setCurrenDate(new Date(currenDate.setDate(currenDate.getDate() - 30)));
+    else if (chartPeriod == "Monthly")
+      setCurrenDate(new Date(currenDate.setDate(currenDate.getDate() - 365)));
   }
 
   function handleNextDate() {
-    setCurrenDate(new Date(currenDate.setDate(currenDate.getDate() + 7)));
+    if (chartPeriod == "Weekly")
+      setCurrenDate(new Date(currenDate.setDate(currenDate.getDate() + 7)));
+    else if (chartPeriod == "Daily")
+      setCurrenDate(new Date(currenDate.setDate(currenDate.getDate() + 30)));
+    else if (chartPeriod == "Monthly")
+      setCurrenDate(new Date(currenDate.setDate(currenDate.getDate() + 365)));
   }
 
   useEffect(() => {
     FetchData();
-    setChartKey((prev) => prev + 1)
-  }, [currenDate , data]);
+  }, [currenDate, data, chartPeriod]);
 
   return (
     <View className="flex-1 bg-gray-100">
@@ -80,7 +111,10 @@ const index = () => {
             }}
           >
             <TouchableOpacity onPress={handlePrevDate}>
-              <ChevronLeftIcon color={"blue"} size={hp(3)} />
+              <ChevronLeftIcon
+                color={"blue"}
+                size={hp(3)}
+              />
             </TouchableOpacity>
             <Text
               style={{
@@ -89,10 +123,13 @@ const index = () => {
               }}
               className="text-gray-300 font-semibold"
             >
-              Weekly
+              {Period[chartPeriodSelected]}
             </Text>
             <TouchableOpacity onPress={handleNextDate}>
-              <ChevronRightIcon color={"blue"} size={hp(3)} />
+              <ChevronRightIcon
+                color={"blue"}
+                size={hp(3)}
+              />
             </TouchableOpacity>
           </View>
           <View>
@@ -102,11 +139,22 @@ const index = () => {
                 fontSize: hp(1.8),
               }}
             >
-              {startDate.toLocaleDateString("en-US", { month: "short" })}{" "}
-              {startDate.getDate()}
-              {" - "}
-              {endDate.toLocaleDateString("en-US", { month: "short" })}{" "}
-              {endDate.getDate()}{" "}
+              {(chartPeriod === "Weekly" || chartPeriod === "Daily") &&
+                `${startDate.getFullYear()} ${startDate.toLocaleDateString(
+                  "en-US",
+                  { month: "short" }
+                )} ${startDate.getDate()} - ${endDate.getFullYear()} ${endDate.toLocaleDateString(
+                  "en-US",
+                  { month: "short" }
+                )} ${endDate.getDate()}`}
+              {chartPeriod === "Monthly" &&
+                `${startDate.getFullYear()} ${startDate.toLocaleDateString(
+                  "en-US",
+                  { month: "short" }
+                )} - ${endDate.getFullYear()} ${endDate.toLocaleDateString(
+                  "en-US",
+                  { month: "short" }
+                )}`}
             </Text>
             <Text
               className="font-semibold text-gray-400"
@@ -142,9 +190,18 @@ const index = () => {
               />
             </View>
             <View>
-              <View>
-                <SegmentedControl values={["Weekly", "Monthly", "Yearly"]} selectedIndex={0}/>
-              </View>
+              <SegmentedControl
+                values={["Day", "Week", "Month", "Year"]}
+                selectedIndex={chartPeriodSelected}
+                onChange={(event) => {
+                  setChartPeriodSelected(
+                    event.nativeEvent.selectedSegmentIndex
+                  );
+                  setChartPeriod(
+                    Period[event.nativeEvent.selectedSegmentIndex]
+                  );
+                }}
+              />
             </View>
           </View>
         </View>
