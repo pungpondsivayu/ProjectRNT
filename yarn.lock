@@ -4486,6 +4486,11 @@ expo-asset@~11.0.2:
     invariant "^2.2.4"
     md5-file "^3.2.3"
 
+expo-checkbox@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.npmjs.org/expo-checkbox/-/expo-checkbox-4.0.1.tgz"
+  integrity sha512-dZECDqNVeAl8bLbho4mvZD+Vvqwr8mpa6lAHU7tBGGXtx4xfkztw05XlvB89yiIcG3FOQX5KhUBVhXOz+S2+VQ==
+
 expo-constants@*, expo-constants@~17.0.4:
   version "17.0.4"
   resolved "https://registry.npmjs.org/expo-constants/-/expo-constants-17.0.4.tgz"

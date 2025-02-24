@@ -76,9 +76,11 @@ const index = () => {
             >
               care of you everywhere at all times
             </Text>
-            <TouchableOpacity className="mt-7 bg-[#0284c7] py-4 rounded-lg ">
+            <Pressable className="mt-7 bg-[#0284c7] py-4 rounded-lg" onPress={() => {
+              router.push("/auth/signup")
+            }}> 
               <Text className="text-center text-white">Join Now</Text>
-            </TouchableOpacity>
+            </Pressable>
             <View className="flex-row mt-4 justify-center">
               <Text>Already have an account ? </Text>
               <Pressable>
