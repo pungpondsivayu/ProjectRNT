@@ -83,7 +83,7 @@ const index = () => {
             </Pressable>
             <View className="flex-row mt-4 justify-center">
               <Text>Already have an account ? </Text>
-              <Pressable>
+              <Pressable onPress={() => router.push("/auth/signin")}>
                 <Text
                   style={{
                     fontSize: hp(1.6),

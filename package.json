@@ -8,7 +8,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "test": "jest --watchAll",
-    "server": "json-server --watch --host 0.0.0.0 ./data/db.json"
+    "server":  "json-server --watch --host 0.0.0.0 ./data/db.json"
   },
   "jest": {
     "preset": "jest-expo"
@@ -25,7 +25,6 @@
     "axios": "^1.7.9",
     "dependencies": "^0.0.1",
     "expo": "~52.0.25",
-    "expo-checkbox": "^4.0.1",
     "expo-font": "~13.0.3",
     "expo-linear-gradient": "~14.0.2",
     "expo-linking": "~7.0.4",

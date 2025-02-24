@@ -43,15 +43,6 @@ function Home() {
         <View className="mb-7">
           <Service />
         </View>
-        <View>
-          <TouchableOpacity
-            onPress={() => {
-              router.push("/auth");
-            }}
-          >
-            <Text>Auth</Text>
-          </TouchableOpacity>
-        </View>
       </ScrollView>
     </View>
   );

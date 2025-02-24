@@ -15,7 +15,7 @@ import { useGetMoodQuery } from "@/controllers/Moodtrack.Controllers";
 import { ProcessDataChart } from "@/helpers/controller/Moottrack/ProcessDataChart";
 
 const index = () => {
-  //useHook
+  //useHookewqeqw
 
   //setting value
   const Period: string[] = ["Daily", "Weekly", "Monthly" , "Yearly"];
@@ -23,7 +23,6 @@ const index = () => {
   const [chartPeriodSelected, setChartPeriodSelected] = useState<number>(
     Period.indexOf(chartPeriod)
   );
-  const [dateTitle, setDatetitle] = useState<string>("");
   const [chartData, setChartData] = useState<barDataItem[]>([]);
   const [currenDate, setCurrenDate] = useState<Date>(new Date());
   const [startDate, setStartDate] = useState<Date>(new Date());
