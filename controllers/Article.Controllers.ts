@@ -1,5 +1,4 @@
 import { BaseApi } from "@/helpers/controller/ConfigQuery";
-import { setArticle } from "@/redux/slice/article.slice";
 
 export const ArticleCategoryController = BaseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -25,15 +24,7 @@ export const ArticleCategoryController = BaseApi.injectEndpoints({
       providesTags: (result, error, Data) => [
         { type: "Article", id: Data.activeCategory },
       ],
-      async onQueryStarted(queryArgument, { dispatch, queryFulfilled }) {
-        try {
-          const { data: response }: any = await queryFulfilled;
-          response && dispatch(setArticle(response));
-        } catch (error) {
-          console.error("Failed to add post:", error);
-        }
-      },
-    }),
+    })
   }),
 });
 

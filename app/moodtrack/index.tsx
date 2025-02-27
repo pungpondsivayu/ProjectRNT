@@ -4,7 +4,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import { BarChart, barDataItem } from "react-native-gifted-charts";
+import { BarChart, barDataItem } from "react-native-gifted-charts"
 import { parseDateByMode } from "@/helpers/controller/date/GetDate";
 import SegmentedControl from "@react-native-segmented-control/segmented-control";
 import {
@@ -13,12 +13,15 @@ import {
 } from "react-native-heroicons/outline";
 import { useGetMoodQuery } from "@/controllers/Moodtrack.Controllers";
 import { ProcessDataChart } from "@/helpers/controller/Moottrack/ProcessDataChart";
+import { selectAllLoggedIn } from "@/redux/slice/auth.slice";
+import { useSelector } from "react-redux";
+import { router } from "expo-router";
 
 const index = () => {
-  //useHookewqeqw
+  //useHooke
 
   //setting value
-  const Period: string[] = ["Daily", "Weekly", "Monthly" , "Yearly"];
+  const Period: string[] = ["Daily", "Weekly", "Monthly"];
   const [chartPeriod, setChartPeriod] = useState<string>("Weekly");
   const [chartPeriodSelected, setChartPeriodSelected] = useState<number>(
     Period.indexOf(chartPeriod)
@@ -59,9 +62,6 @@ const index = () => {
     } else if (chartPeriod == "Monthly") {
       startDate = parseDateByMode(date.toString(), "getstartofyear");
       endDate = parseDateByMode(date.toString(), "getendofyear");
-    }else if(chartPeriod == "Yearly"){
-      startDate = parseDateByMode(date.toString(), "getfullyear");
-      endDate = parseDateByMode(date.toString(), "getfullyear");
     }
     setStartDate((prevDate) => (prevDate = new Date(startDate)));
     setEndDate((prevDate) => (prevDate = new Date(endDate)));
@@ -88,6 +88,7 @@ const index = () => {
 
   useEffect(() => {
     FetchData();
+    console.log(data)
   }, [currenDate, data, chartPeriod]);
 
   return (
@@ -190,7 +191,7 @@ const index = () => {
             </View>
             <View>
               <SegmentedControl
-                values={["Day", "Week", "Month", "Year"]}
+                values={["Day", "Week", "Month"]}
                 selectedIndex={chartPeriodSelected}
                 onChange={(event) => {
                   setChartPeriodSelected(

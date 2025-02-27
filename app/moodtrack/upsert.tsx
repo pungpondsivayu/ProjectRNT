@@ -64,6 +64,15 @@ const upsert = () => {
       color: ["#f6370a", "#ff7e00", "#fbff00"],
     },
   ];
+
+  const initialValues: Imoodtrack = {
+    mood: MoodData[activeMood].name,
+    feeling: "",
+    date: parseDateByMode(
+      date?.toString() ?? new Date().toString(),
+      "getfulldate"
+    ),
+  };
   
   //use query
   const [AddMood] = useAddMoodMutation();
@@ -72,12 +81,6 @@ const upsert = () => {
   //function
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
-  };
-
-  const initialValues: Imoodtrack = {
-    mood: MoodData[activeMood].name,
-    feeling: "",
-    date: parseDateByMode(date?.toString(), "getfulldate"),
   };
 
   async function HandleSubmit(values: Imoodtrack) {

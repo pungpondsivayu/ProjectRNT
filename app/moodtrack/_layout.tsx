@@ -4,6 +4,7 @@ import { Platform  } from 'react-native';
 import { Provider } from 'react-redux';
 import { useReactNavigationDevTools } from '@dev-plugins/react-navigation';
 import { TabBar } from '@/components/layout/moodtrack/Tabbar';
+import { useEffect } from 'react';
 
 export default function TabLayout() {
   const ios  = Platform.OS === "ios"

@@ -1,4 +1,22 @@
 {
+  "users": [
+    {
+      "email": "test@gmail.com",
+      "password": "$2a$10$AI5rmWfNFfz6dTduX9ElTubPeyDhkIyyFOQK/850ACHs2sTmGX2JC",
+      "id": 1,
+      "name": "test",
+      "phoneNumber": "0987654321",
+      "role": "User"
+    },
+    {
+      "email": "test2@gmail.com",
+      "password": "$2a$10$n3sO/DBBfzCCzcKgG0sM8eLNiP.HBip61IsWd05GLvwzOAYWEbTI.",
+      "id": 3,
+      "name": "test",
+      "phoneNumber": "09876564321",
+      "role": "User"
+    }
+  ],
   "category": [
     {
       "id": "1",
@@ -219,6 +237,7 @@
       "sleep_hours": 6,
       "exercise_minutes": 20,
       "social_interaction_score": 3,
+      "userId": 1,
       "trigger": "No social interaction for the day"
     },
     {
@@ -230,6 +249,7 @@
       "sleep_hours": 6,
       "exercise_minutes": 20,
       "social_interaction_score": 3,
+      "userId": 1,
       "trigger": "No social interaction for the day"
     },
     {
@@ -242,6 +262,7 @@
       "exercise_minutes": 45,
       "social_interaction_score": 8,
       "trigger": "Completed a challenging project at work",
+      "userId": 1,
       "notes": "Feeling proud, keep up the momentum!"
     },
     {
@@ -254,6 +275,7 @@
       "exercise_minutes": 15,
       "social_interaction_score": 4,
       "trigger": "Upcoming public speaking event",
+      "userId": 1,
       "notes": "Practice presentation to build confidence."
     },
     {
@@ -266,6 +288,7 @@
       "exercise_minutes": 30,
       "social_interaction_score": 6,
       "trigger": "Spent time in nature",
+      "userId": 1,
       "notes": "Consider scheduling regular nature walks."
     },
     {
@@ -278,6 +301,7 @@
       "exercise_minutes": 25,
       "social_interaction_score": 2,
       "trigger": "Internet outage while working",
+      "userId": 1,
       "notes": "Look into backup internet solutions."
     },
     {
@@ -290,6 +314,7 @@
       "exercise_minutes": 50,
       "social_interaction_score": 7,
       "trigger": "Watched an inspiring video",
+      "userId": 1,
       "notes": "Write down actionable goals for the week."
     },
     {
@@ -302,6 +327,7 @@
       "exercise_minutes": 20,
       "social_interaction_score": 3,
       "trigger": "Lack of communication with family",
+      "userId": 1,
       "notes": "Schedule a video call with family soon."
     },
     {
@@ -314,6 +340,7 @@
       "exercise_minutes": 60,
       "social_interaction_score": 9,
       "trigger": "Upcoming vacation plans",
+      "userId": 1,
       "notes": "Pack essentials and finalize itinerary."
     },
     {
@@ -326,6 +353,7 @@
       "exercise_minutes": 10,
       "social_interaction_score": 5,
       "trigger": "Overloaded work schedule",
+      "userId": 1,
       "notes": "Plan breaks and delegate tasks if possible."
     },
     {
@@ -338,6 +366,7 @@
       "exercise_minutes": 35,
       "social_interaction_score": 8,
       "trigger": "Heartfelt conversation with a friend",
+      "userId": 1,
       "notes": "Make time to nurture friendships."
     },
     {
@@ -350,6 +379,7 @@
       "exercise_minutes": 20,
       "social_interaction_score": 3,
       "trigger": "Routine day with no excitement",
+      "userId": 1,
       "notes": "Try a new hobby or activity to break monotony."
     },
     {
@@ -362,6 +392,7 @@
       "exercise_minutes": 40,
       "social_interaction_score": 7,
       "trigger": "Started planning for a new project",
+      "userId": 1,
       "notes": "Break the plan into manageable steps."
     },
     {
@@ -374,6 +405,7 @@
       "exercise_minutes": 15,
       "social_interaction_score": 4,
       "trigger": "Work deadlines piling up",
+      "userId": 1,
       "notes": "Prioritize tasks and seek help if needed."
     },
     {
@@ -386,6 +418,7 @@
       "exercise_minutes": 30,
       "social_interaction_score": 6,
       "trigger": "Spent time reading a good book",
+      "userId": 1,
       "notes": "Incorporate reading into daily routine."
     },
     {
@@ -398,6 +431,7 @@
       "exercise_minutes": 20,
       "social_interaction_score": 3,
       "trigger": "Did not receive expected feedback",
+      "userId": 1,
       "notes": "Reflect on lessons learned and move forward."
     },
     {
@@ -410,6 +444,7 @@
       "exercise_minutes": 50,
       "social_interaction_score": 9,
       "trigger": "Attended an inspiring workshop",
+      "userId": 1,
       "notes": "Apply the skills learned from the workshop."
     },
     {
@@ -422,6 +457,7 @@
       "exercise_minutes": 10,
       "social_interaction_score": 2,
       "trigger": "Unexpected expenses",
+      "userId": 1,
       "notes": "Create a budget plan to manage finances better."
     },
     {
@@ -434,6 +470,7 @@
       "exercise_minutes": 35,
       "social_interaction_score": 7,
       "trigger": "Received compliments on recent work",
+      "userId": 1,
       "notes": "Celebrate small achievements often."
     },
     {
@@ -446,6 +483,7 @@
       "exercise_minutes": 25,
       "social_interaction_score": 3,
       "trigger": "No meaningful conversations",
+      "userId": 1,
       "notes": "Reach out to friends and plan a meetup."
     },
     {
@@ -458,6 +496,7 @@
       "exercise_minutes": 45,
       "social_interaction_score": 8,
       "trigger": "Made significant progress on a goal",
+      "userId": 1,
       "notes": "Set new milestones to keep the momentum."
     },
     {
@@ -470,6 +509,7 @@
       "exercise_minutes": 20,
       "social_interaction_score": 5,
       "trigger": "Long wait times during errands",
+      "userId": 1,
       "notes": "Practice patience and focus on what you can control."
     },
     {
@@ -482,6 +522,7 @@
       "exercise_minutes": 40,
       "social_interaction_score": 9,
       "trigger": "Unexpected call from an old friend",
+      "userId": 1,
       "notes": "Stay in touch with old friends more often."
     },
     {
@@ -494,6 +535,7 @@
       "exercise_minutes": 15,
       "social_interaction_score": 4,
       "trigger": "Too many meetings",
+      "userId": 1,
       "notes": "Try to schedule fewer meetings or take breaks in between."
     },
     {
@@ -506,6 +548,7 @@
       "exercise_minutes": 35,
       "social_interaction_score": 7,
       "trigger": "Received a promising job lead",
+      "userId": 1,
       "notes": "Prepare well for the next steps."
     },
     {
@@ -518,6 +561,7 @@
       "exercise_minutes": 30,
       "social_interaction_score": 9,
       "trigger": "Valentine’s Day celebration",
+      "userId": 1,
       "notes": "Cherish the relationships in life."
     },
     {
@@ -530,6 +574,7 @@
       "exercise_minutes": 20,
       "social_interaction_score": 3,
       "trigger": "Upcoming work deadline",
+      "userId": 1,
       "notes": "Break tasks into smaller steps and focus on progress."
     },
     {
@@ -542,6 +587,7 @@
       "exercise_minutes": 50,
       "social_interaction_score": 9,
       "trigger": "Planned a fun getaway",
+      "userId": 1,
       "notes": "Pack essentials and prepare for a great time."
     },
     {
@@ -554,6 +600,7 @@
       "exercise_minutes": 30,
       "social_interaction_score": 6,
       "trigger": "Spent time meditating",
+      "userId": 1,
       "notes": "Make meditation a daily habit."
     },
     {
@@ -566,6 +613,7 @@
       "exercise_minutes": 25,
       "social_interaction_score": 4,
       "trigger": "Computer crashed while working",
+      "userId": 1,
       "notes": "Look into better backup solutions."
     }
   ]

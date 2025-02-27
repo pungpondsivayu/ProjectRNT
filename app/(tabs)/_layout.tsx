@@ -11,38 +11,38 @@ export default function TabLayout() {
   const navigationRef = useNavigationContainerRef();
   useReactNavigationDevTools(navigationRef);
   return (
-    <Provider store={store}>
-      <View
-        className="bg-white"
-        style={{
-          paddingTop: ios ? 56 : 16,
-        }}
-      >
-        <Navbar />
-      </View>
-      <Tabs
-        screenOptions={{ tabBarActiveTintColor: "blue", headerShown: false }} 
-        tabBar={(props) => <TabBar {...props} />}
-      >
-        <Tabs.Screen
-          name="index"
-          options={{
-            title: "Home",
+      <Provider store={store}>
+        <View
+          className="bg-white"
+          style={{
+            paddingTop: ios ? 56 : 16,
           }}
-        />
-        <Tabs.Screen
-          name="article"
-          options={{
-            title: "Article",
-          }}
-        />
-        <Tabs.Screen
-          name="history"
-          options={{
-            title: "History",
-          }}
-        />
-      </Tabs>
-    </Provider>
+        >
+          <Navbar />
+        </View>
+        <Tabs
+          screenOptions={{ tabBarActiveTintColor: "blue", headerShown: false }}
+          tabBar={(props) => <TabBar {...props} />}
+        >
+          <Tabs.Screen
+            name="index"
+            options={{
+              title: "Home",
+            }}
+          />
+          <Tabs.Screen
+            name="article"
+            options={{
+              title: "Article",
+            }}
+          />
+          <Tabs.Screen
+            name="history"
+            options={{
+              title: "History",
+            }}
+          />
+        </Tabs>
+      </Provider>
   );
 }
