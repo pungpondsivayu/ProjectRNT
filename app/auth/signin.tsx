@@ -27,8 +27,10 @@ import { LoginReq } from "@/validation/auth/Validation";
 import { ALERT_TYPE, Dialog, AlertNotificationRoot, Toast } from 'react-native-alert-notification';
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { setLoggedInUser } from "@/redux/slice/auth.slice";
+import { useDispatch } from "react-redux";
 
 const signin = () => {
+  const dispatch = useDispatch();
   const [isCheaskBox, setIsCheackBox] = useState<boolean>(false);
   const ios = Platform.OS == "ios";
   const [Login] = useLoginMutation();
@@ -48,6 +50,7 @@ const signin = () => {
          textBody: `Login successfully.`,
        });
        const { data } = response;
+       dispatch(setLoggedInUser(data.user));
        await AsyncStorage.setItem("token", data.accessToken);
        setTimeout(() => {
          router.push("/(tabs)");

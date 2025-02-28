@@ -7,13 +7,6 @@ export function ProcessDataChart(
   endDate: string,
   mode: string
 ) {
-  // console.clear();
-  // console.log("=======================================");
-  // console.log("data ", data);
-  // console.log("startDate ", startDate);
-  // console.log("endData ", endDate);
-  // console.log("mode ", mode);
-  // console.log("=======================================");
   const StartDay: Date = new Date(startDate);
   const EndDay: Date = new Date(endDate);
   if (mode === "Weekly") {

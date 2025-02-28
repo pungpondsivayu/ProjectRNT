@@ -15,6 +15,14 @@
       "name": "test",
       "phoneNumber": "09876564321",
       "role": "User"
+    },
+    {
+      "email": "test3@gmail.com",
+      "password": "$2a$10$jHaKV/TqoYaLt7uJjj1YJOJc9UpiXCez7uuOHw5UlusrYZqNMItkO",
+      "id": 4,
+      "name": "test3",
+      "phoneNumber": "0987654321",
+      "role": "User"
     }
   ],
   "category": [
@@ -595,7 +603,6 @@
       "date": "2025-02-17",
       "mood": "Relaxed",
       "feeling": "Enjoyed a quiet evening",
-      "stress_level": 2,
       "sleep_hours": 7,
       "exercise_minutes": 30,
       "social_interaction_score": 6,
@@ -608,7 +615,6 @@
       "date": "2025-02-18",
       "mood": "Frustrated",
       "feeling": "Annoyed by technical difficulties",
-      "stress_level": 5,
       "sleep_hours": 6,
       "exercise_minutes": 25,
       "social_interaction_score": 4,

@@ -88,7 +88,6 @@ const index = () => {
 
   useEffect(() => {
     FetchData();
-    console.log(data)
   }, [currenDate, data, chartPeriod]);
 
   return (
