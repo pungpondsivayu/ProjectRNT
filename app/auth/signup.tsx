@@ -22,7 +22,7 @@ import { RegisterReq } from "@/validation/auth/Validation";
 import { Formik } from "formik";
 import { useRegisterMutation } from "@/controllers/Auth.Controllers";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
-import { ALERT_TYPE, Dialog, AlertNotificationRoot, Toast } from 'react-native-alert-notification';
+import { ALERT_TYPE, Toast } from "react-native-alert-notification";
 
 const signup = () => {
   //setting value
@@ -67,7 +67,6 @@ const signup = () => {
   }
 
   return (
-    <AlertNotificationRoot>
       <View className="flex-1 bg-white">
         <ScrollView showsVerticalScrollIndicator={false}>
           <View
@@ -291,7 +290,6 @@ const signup = () => {
           </View>
         </ScrollView>
       </View>
-    </AlertNotificationRoot>
   );
 };
 

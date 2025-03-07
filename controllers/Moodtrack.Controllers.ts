@@ -10,20 +10,28 @@ export const MoodtrackController = BaseApi.injectEndpoints({
         body: {
           ...Data,
         },
-        invalidatesTags : ["Moodtrack"]
+        invalidatesTags: ["Moodtrack"],
       }),
     }),
     GetMood: builder.query({
-
       query: () => {
         return {
           url: `/mood`,
           method: "GET",
         };
       },
-      providesTags : ["Moodtrack"]
+      providesTags: ["Moodtrack"],
+    }),
+    GetMoodbyId: builder.query({
+      query: (userId: number) => {
+        return {
+          url: `/mood?userId=${userId}`,
+          method: "GET",
+        };
+      },
+      providesTags: ["Moodtrack"],
     }),
   }),
 });
 
-export const { useAddMoodMutation, useGetMoodQuery } = MoodtrackController;
+export const { useAddMoodMutation, useGetMoodQuery , useGetMoodbyIdQuery } = MoodtrackController;

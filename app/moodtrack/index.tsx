@@ -13,12 +13,8 @@ import {
 } from "react-native-heroicons/outline";
 import { useGetMoodQuery } from "@/controllers/Moodtrack.Controllers";
 import { ProcessDataChart } from "@/helpers/controller/Moottrack/ProcessDataChart";
-import { selectAllLoggedIn } from "@/redux/slice/auth.slice";
-import { useSelector } from "react-redux";
-import { router } from "expo-router";
-
 const index = () => {
-  //useHooke
+  //useHook
 
   //setting value
   const Period: string[] = ["Daily", "Weekly", "Monthly"];
