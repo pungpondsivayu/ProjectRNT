@@ -23,6 +23,7 @@ import { Formik } from "formik";
 import { useRegisterMutation } from "@/controllers/Auth.Controllers";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { ALERT_TYPE, Toast } from "react-native-alert-notification";
+import { Audio } from 'expo-av'
 
 const signup = () => {
   //setting value
@@ -45,16 +46,22 @@ const signup = () => {
     try {
       const response = await register!(values);
       if (response.data) {
+        const { sound } = await Audio.Sound.createAsync(
+          require("@/assets/sound/success.mp3")
+        );
         Toast.show({
           type: ALERT_TYPE.SUCCESS,
           title: "SUCCESS",
           textBody: `register successfully.`,
         });
         setTimeout(() => {
-          router.push("/auth/signin")
-        }, 2000)
+          router.push("/auth/signin");
+        }, 2000);
       } else {
         const error = response.error as FetchBaseQueryError;
+        const { sound } = await Audio.Sound.createAsync(
+          require("@/assets/sound/failed.mp3")
+        );
         Toast.show({
           type: ALERT_TYPE.DANGER,
           title: "ERROR",

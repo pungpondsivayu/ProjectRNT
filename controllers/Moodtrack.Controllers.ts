@@ -1,10 +1,10 @@
-import { Imoodtrack } from "@/@types/moodtrack/Imoodtrack";
+import { IMentalHealth } from "@/@types/moodtrack/Imoodtrack";
 import { BaseApi } from "@/helpers/controller/ConfigQuery";
 import { parseDateByMode } from "@/helpers/controller/date/GetDate";
 export const MoodtrackController = BaseApi.injectEndpoints({
   endpoints: (builder) => ({
     AddMood: builder.mutation({
-      query: (Data: Imoodtrack) => ({
+      query: (Data: IMentalHealth) => ({
         url: `/mood`,
         method: "POST",
         body: {

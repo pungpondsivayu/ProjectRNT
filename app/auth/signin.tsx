@@ -16,9 +16,6 @@ import {
 } from "react-native-responsive-screen";
 import Checkbox from "expo-checkbox";
 import { router } from "expo-router";
-import {
-  useLoginMutation,
-} from "@/controllers/Auth.Controllers";
 import { ILogin } from "@/@types/auth/AuthType";
 import { Formik } from "formik";
 import { LoginReq } from "@/validation/auth/Validation";
@@ -27,9 +24,8 @@ import {
   Toast,
 } from "react-native-alert-notification";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
-import { useDispatch } from "react-redux";
 import { useAuth } from "@/context/AuthContext";
-
+import { Audio } from 'expo-av'
 const signin = () => {
   // use hook
   const { authState , onLogin } = useAuth();
@@ -49,6 +45,8 @@ const signin = () => {
       if(!onLogin) return null;
       const response = await onLogin(values);
       if (response.data) {
+        const { sound } = await Audio.Sound.createAsync(require("@/assets/sound/success.mp3"))
+        await sound.playAsync();
         Toast.show({
           type: ALERT_TYPE.SUCCESS,
           title: "SUCCESS",
@@ -59,6 +57,8 @@ const signin = () => {
         }, 1500);
       } else {
         const error = response.error as FetchBaseQueryError;
+        const { sound } = await Audio.Sound.createAsync(require("@/assets/sound/failed.mp3"))
+        await sound.playAsync();
         Toast.show({
           type: ALERT_TYPE.DANGER,
           title: "ERROR",

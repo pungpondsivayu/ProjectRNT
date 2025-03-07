@@ -27,12 +27,21 @@ import {
 import { Formik } from "formik";
 import { Validation } from "@/validation/moodtrack/Validation";
 import { parseDateByMode } from "@/helpers/controller/date/GetDate";
-import { Imoodtrack } from "@/@types/moodtrack/Imoodtrack";
+import { IMentalHealth } from "@/@types/moodtrack/Imoodtrack";
 import { useAddMoodMutation } from "@/controllers/Moodtrack.Controllers";
 import { useRouter } from "expo-router";
+import Slider from '@react-native-community/slider';
+import { useSelector } from "react-redux";
+import { selectAllLoggedIn } from "@/redux/slice/auth.slice";
+import {
+  ALERT_TYPE,
+  Toast,
+} from "react-native-alert-notification";
+import { Audio } from 'expo-av'
 
 const upsert = () => {
   //use hook
+  const userData = useSelector(selectAllLoggedIn)[0];
   const router = useRouter()
   
   //setting value
@@ -65,15 +74,20 @@ const upsert = () => {
     },
   ];
 
-  const initialValues: Imoodtrack = {
+  const initialValues: IMentalHealth = {
     mood: MoodData[activeMood].name,
     feeling: "",
-    date: parseDateByMode(
+    stress_level: 0,
+    sleep_hours: 0,
+    exercise_minutes: 0,
+    social_interaction_score: 0,
+    notes: "",
+    userId : userData && userData.id,
+    date: `${parseDateByMode(
       date?.toString() ?? new Date().toString(),
       "getfulldate"
-    ),
+    )}`,
   };
-  
   //use query
   const [AddMood] = useAddMoodMutation();
   
@@ -83,15 +97,39 @@ const upsert = () => {
     setModalVisible(!isModalVisible);
   };
 
-  async function HandleSubmit(values: Imoodtrack) {
+  async function HandleSubmit(values: IMentalHealth) {
+    console.log(values)
     const response = await AddMood({
+      id: 0,
       mood: values.mood,
       feeling: values.feeling,
+      stress_level: values.stress_level,
+      sleep_hours: values.sleep_hours,
+      exercise_minutes: values.exercise_minutes,
+      social_interaction_score: values.social_interaction_score,
+      notes: values.notes,
+      userId: values.userId,
       date: values.date,
     });
     if(response.data){
-      setDate(new Date())
-      router.push("/moodtrack/calendar");
+      const { sound } = await Audio.Sound.createAsync(require("@/assets/sound/success.mp3"))
+      await sound.playAsync();
+      Toast.show({
+        type: ALERT_TYPE.SUCCESS,
+        title: "SUCCESS",
+        textBody: `Moodtrack create successfully.`,
+      });
+      setTimeout(() => {
+        router.push("/moodtrack");
+      }, 1500);
+    }else{
+      const { sound } = await Audio.Sound.createAsync(require("@/assets/sound/failed.mp3"))
+      await sound.playAsync();
+      Toast.show({
+        type: ALERT_TYPE.SUCCESS,
+        title: "ERROR",
+        textBody: `Failed to create a moodtrack.`,
+      });
     }
   }
 
@@ -164,8 +202,7 @@ const upsert = () => {
         contentContainerStyle={{
           paddingBottom: 150,
           paddingTop: 30,
-          paddingHorizontal : 16
-
+          paddingHorizontal: 16,
         }}
         className="bg-white rounded-3xl"
       >
@@ -196,11 +233,11 @@ const upsert = () => {
         </View>
         <Formik
           initialValues={initialValues}
-          onSubmit={(values: Imoodtrack) => HandleSubmit(values)}
+          onSubmit={(values: IMentalHealth) => HandleSubmit(values)}
           validationSchema={Validation}
           enableReinitialize
         >
-          {({ handleChange, handleBlur, handleSubmit, values, errors }) => (
+          {({ handleChange, handleBlur, setFieldValue, handleSubmit, values, errors }) => (
             <View>
               <View className="mx-4 mb-7">
                 <Text
@@ -222,12 +259,151 @@ const upsert = () => {
                       fontSize: hp(1.8),
                     }}
                     placeholder="How are you feeling today?"
-                    className={`bg-neutral-100 ${
+                    className={`rounded-xl bg-neutral-100 ${
                       errors.feeling ? "border border-red-600" : ""
                     }`}
                     onChangeText={handleChange("feeling")}
                     onBlur={handleBlur("feeling")}
                     value={values.feeling}
+                  />
+                </View>
+              </View>
+              <View className="mx-4 mb-7">
+                <View className="flex flex-row justify-between">
+                  <Text
+                    className="font-semibold text-neutral-400 mb-2"
+                    style={{
+                      fontSize: hp(1.5),
+                    }}
+                  >
+                    Stress level
+                  </Text>
+                  <Text className="font-bold">{values.stress_level}</Text>
+                </View>
+                <View>
+                  <Slider
+                    className="w-full h-10"
+                    minimumValue={0}
+                    maximumValue={10}
+                    minimumTrackTintColor="#0284c7"
+                    maximumTrackTintColor="#000000"
+                    onValueChange={(e) => {
+                      setFieldValue("stress_level" , e);
+                    }}
+                    step={1}
+                    value={values.stress_level}
+                  />
+                </View>
+              </View>
+              <View className="mx-4 mb-7">
+                <View className="flex flex-row justify-between">
+                  <Text
+                    className="font-semibold text-neutral-400 mb-2"
+                    style={{
+                      fontSize: hp(1.5),
+                    }}
+                  >
+                    Sleep hours
+                  </Text>
+                  <Text className="font-bold">{values.sleep_hours}</Text>
+                </View>
+                <View>
+                  <Slider
+                    className="w-full h-10"
+                    minimumValue={0}
+                    maximumValue={10}
+                    minimumTrackTintColor="#0284c7"
+                    maximumTrackTintColor="#000000"
+                    onValueChange={(e) => {
+                      setFieldValue("sleep_hours" , e);
+                    }}
+                    step={1}
+                    value={values.sleep_hours}
+                  />
+                </View>
+              </View>
+              <View className="mx-4 mb-7">
+                <View className="flex flex-row justify-between">
+                  <Text
+                    className="font-semibold text-neutral-400 mb-2"
+                    style={{
+                      fontSize: hp(1.5),
+                    }}
+                  >
+                    Exercise minutes
+                  </Text>
+                  <Text className="font-bold">{values.exercise_minutes}</Text>
+                </View>
+                <View>
+                  <Slider
+                    className="w-full h-10"
+                    minimumValue={0}
+                    maximumValue={10}
+                    minimumTrackTintColor="#0284c7"
+                    maximumTrackTintColor="#000000"
+                    onValueChange={(e) => {
+                      setFieldValue("exercise_minutes" , e);
+                    }}
+                    step={1}
+                    value={values.exercise_minutes}
+                  />
+                </View>
+              </View>
+              <View className="mx-4 mb-7">
+                <View className="flex flex-row justify-between">
+                  <Text
+                    className="font-semibold text-neutral-400 mb-2"
+                    style={{
+                      fontSize: hp(1.5),
+                    }}
+                  >
+                    Social interaction score
+                  </Text>
+                  <Text className="font-bold">
+                    {values.social_interaction_score}
+                  </Text>
+                </View>
+                <View>
+                  <Slider
+                    className="w-full h-10"
+                    minimumValue={0}
+                    maximumValue={10}
+                    minimumTrackTintColor="#0284c7"
+                    maximumTrackTintColor="#000000"
+                    onValueChange={(e) => {
+                      setFieldValue("social_interaction_score" , e);
+                    }}
+                    step={1}
+                    value={values.social_interaction_score}
+                  />
+                </View>
+              </View>
+              <View className="mx-4 mb-7">
+                <Text
+                  className="font-semibold text-neutral-400 mb-2"
+                  style={{
+                    fontSize: hp(1.5),
+                  }}
+                >
+                  Notes
+                </Text>
+                <View>
+                  <TextInput
+                    multiline={true}
+                    numberOfLines={50}
+                    style={{
+                      height: 180,
+                      textAlignVertical: "top",
+                      padding: 10,
+                      fontSize: hp(1.8),
+                    }}
+                    placeholder="Notes."
+                    className={`rounded-xl bg-neutral-100 ${
+                      errors.notes ? "border border-red-600" : ""
+                    }`}
+                    onChangeText={handleChange("notes")}
+                    onBlur={handleBlur("notes")}
+                    value={values.notes}
                   />
                 </View>
               </View>
