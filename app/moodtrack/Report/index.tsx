@@ -119,7 +119,6 @@ const index = () => {
                   fontWeight: "bold",
                 }}
               >
-                PDF
               </Text>
             </TouchableOpacity>
           </View>
