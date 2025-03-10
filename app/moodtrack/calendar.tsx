@@ -4,14 +4,13 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import { Calendar, CalendarProps } from "react-native-calendars";
+import { Calendar  } from "react-native-calendars";
 import { useSelector } from "react-redux";
 import { selectAllLoggedIn } from "@/redux/slice/auth.slice";
 import { useGetMoodbyDateQuery, useGetMoodbyIdQuery } from "@/controllers/Moodtrack.Controllers";
 import { router, useNavigation } from "expo-router";
 import { MoodData } from "./MoodData";
 import { useAuth } from "@/context/AuthContext";
-import { IMentalHealth } from "@/@types/moodtrack/Imoodtrack";
 
 const CalendarWithMonthYearPicker = () => {
   //use Hook
@@ -20,13 +19,11 @@ const CalendarWithMonthYearPicker = () => {
   const { authState } = useAuth();
   //setting value
   const [currentData, setCurrentData] = useState<any>([]);
-  const [moodData, setMoodData] = useState<IMentalHealth>();
   
 
   //use query
   const { data, error, refetch } = useGetMoodbyIdQuery(
-    // userData ? userData.id : 0
-    1
+    userData ? userData.id : 0
   );
   
   //function
@@ -86,9 +83,9 @@ const CalendarWithMonthYearPicker = () => {
 
 
   useEffect(() => {
-    // if (!authState?.authenticated) {
-    //   return router.replace("/auth")
-    // }
+    if (!authState?.authenticated) {
+      return router.replace("/auth")
+    }
   }, []);
 
   return (

@@ -49,7 +49,6 @@ const upsert = () => {
 
   //setting value
   const [activeMood, setActiveMood] = useState<number>(0);
-  const [moodData, setMoodData] = useState<IMentalHealth>();
   const [isModalVisible, setModalVisible] = useState(false);
   const [date, setDate] = useState<DateType>(dayjs());
   const deviceWidth = Dimensions.get("window").width;
@@ -57,20 +56,18 @@ const upsert = () => {
   const item = useLocalSearchParams();
   const { authState } = useAuth();
   const initialValues: IMentalHealth = {
-    mood: moodData ? moodData.mood : MoodData[activeMood].name,
-    feeling: moodData ? moodData.feeling : "",
-    stress_level: moodData ? moodData.stress_level : 0,
-    sleep_hours: moodData ? moodData.sleep_hours : 0,
-    exercise_minutes: moodData ? moodData.exercise_minutes : 0,
-    social_interaction_score: moodData ? moodData?.social_interaction_score : 0,
-    notes: moodData ? moodData.notes : "",
-    userId: moodData ? moodData.userId : userData && userData.id,
-    date: moodData
-      ? moodData.date
-      : `${parseDateByMode(
-          date?.toString() ?? new Date().toString(),
-          "getfulldate"
-        )}`,
+    mood: MoodData[activeMood].name,
+    feeling: "",
+    stress_level: 0,
+    sleep_hours: 0,
+    exercise_minutes: 0,
+    social_interaction_score: 0,
+    notes: "",
+    userId:  userData && userData.id,
+    date: `${parseDateByMode(
+      date?.toString() ?? new Date().toString(),
+      "getfulldate"
+    )}`,
   };
 
   //use queryc
@@ -83,17 +80,6 @@ const upsert = () => {
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
-
-  function FetchDataByDate() {
-    if (data && !error) {
-      setMoodData(data);
-    }
-  }
-
-  useEffect(() => {
-    FetchDataByDate();
-    console.log(moodData);
-  }, [data, item]);
 
   async function HandleSubmit(values: IMentalHealth) {
     const response = await AddMood({
@@ -192,9 +178,9 @@ const upsert = () => {
   }
 
   useEffect(() => {
-    // if (!authState?.authenticated) {
-    //   return router.replace("/auth")
-    // }
+    if (!authState?.authenticated) {
+      return router.replace("/auth")
+    }
   }, []);
 
   return (

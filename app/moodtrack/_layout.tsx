@@ -1,5 +1,5 @@
 import { store } from '@/redux/store/store';
-import { Tabs, useNavigationContainerRef } from 'expo-router';
+import { Stack, Tabs, useNavigationContainerRef } from 'expo-router';
 import { Platform  } from 'react-native';
 import { Provider } from 'react-redux';
 import { useReactNavigationDevTools } from '@dev-plugins/react-navigation';

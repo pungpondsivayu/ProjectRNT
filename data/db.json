@@ -598,6 +598,138 @@
       "notes": "Test",
       "userId": 1,
       "date": "2025-03-09"
+    },
+    {
+      "id": 32,
+      "date": "2025-02-19",
+      "mood": "Angry",
+      "feeling": "Annoyed by technical difficulties",
+      "stress_level": 6,
+      "sleep_hours": 6,
+      "exercise_minutes": 25,
+      "social_interaction_score": 4,
+      "userId": 1,
+      "notes": "Look into better backup solutions."
+    },
+    {
+      "id": 32,
+      "date": "2025-02-20",
+      "mood": "Angry",
+      "feeling": "Annoyed by technical difficulties",
+      "stress_level": 6,
+      "sleep_hours": 6,
+      "exercise_minutes": 25,
+      "social_interaction_score": 4,
+      "userId": 1,
+      "notes": "Look into better backup solutions."
+    },
+    {
+      "id": 33,
+      "date": "2025-02-21",
+      "mood": "Angry",
+      "feeling": "Annoyed by technical difficulties",
+      "stress_level": 4,
+      "sleep_hours": 6,
+      "exercise_minutes": 25,
+      "social_interaction_score": 4,
+      "userId": 1,
+      "notes": "Look into better backup solutions."
+    },
+    {
+      "id": 34,
+      "date": "2025-02-22",
+      "mood": "Angry",
+      "feeling": "Annoyed by technical difficulties",
+      "stress_level": 4,
+      "sleep_hours": 6,
+      "exercise_minutes": 25,
+      "social_interaction_score": 4,
+      "userId": 1,
+      "notes": "Look into better backup solutions."
+    },
+    {
+      "id": 35,
+      "date": "2025-02-23",
+      "mood": "Angry",
+      "feeling": "Annoyed by technical difficulties",
+      "stress_level": 4,
+      "sleep_hours": 6,
+      "exercise_minutes": 25,
+      "social_interaction_score": 4,
+      "userId": 1,
+      "notes": "Look into better backup solutions."
+    },
+    {
+      "id": 36,
+      "date": "2025-02-24",
+      "mood": "Angry",
+      "feeling": "Annoyed by technical difficulties",
+      "stress_level": 4,
+      "sleep_hours": 6,
+      "exercise_minutes": 25,
+      "social_interaction_score": 4,
+      "userId": 1,
+      "notes": "Look into better backup solutions."
+    },
+    {
+      "id": 37,
+      "date": "2025-02-25",
+      "mood": "Angry",
+      "feeling": "Annoyed by technical difficulties",
+      "stress_level": 4,
+      "sleep_hours": 6,
+      "exercise_minutes": 25,
+      "social_interaction_score": 4,
+      "userId": 1,
+      "notes": "Look into better backup solutions."
+    },
+    {
+      "id": 38,
+      "date": "2025-02-26",
+      "mood": "Angry",
+      "feeling": "Annoyed by technical difficulties",
+      "stress_level": 4,
+      "sleep_hours": 6,
+      "exercise_minutes": 25,
+      "social_interaction_score": 4,
+      "userId": 1,
+      "notes": "Look into better backup solutions."
+    },
+    {
+      "id": 39,
+      "date": "2025-02-27",
+      "mood": "Angry",
+      "feeling": "Annoyed by technical difficulties",
+      "stress_level": 4,
+      "sleep_hours": 6,
+      "exercise_minutes": 25,
+      "social_interaction_score": 4,
+      "userId": 1,
+      "notes": "Look into better backup solutions."
+    },
+    {
+      "id": 40,
+      "mood": "Angry",
+      "feeling": "Test",
+      "stress_level": 7,
+      "sleep_hours": 4,
+      "exercise_minutes": 6,
+      "social_interaction_score": 2,
+      "notes": "Test",
+      "userId": 1,
+      "date": "2025-03-11"
+    },
+    {
+      "id": 41,
+      "mood": "Sad",
+      "feeling": "Sss",
+      "stress_level": 9,
+      "sleep_hours": 4,
+      "exercise_minutes": 8,
+      "social_interaction_score": 5,
+      "notes": "T",
+      "userId": 1,
+      "date": "2025-03-12"
     }
   ]
 }

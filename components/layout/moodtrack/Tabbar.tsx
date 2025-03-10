@@ -1,7 +1,11 @@
 import { View, StyleSheet, LayoutChangeEvent, Platform } from "react-native";
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
 import { useState } from "react";
-import Animated, { useAnimatedStyle, useSharedValue, withSpring } from "react-native-reanimated";
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+} from "react-native-reanimated";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -10,12 +14,15 @@ import TabbarButton from "./TabbarButton";
 const ios = Platform.OS === "ios";
 
 export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
-  
   return (
     <View style={styles.tabber}>
       {state.routes.map((route, index) => {
+        const PathNotRequire = ["Report/index" , "MoodData"];
+        if (PathNotRequire.includes(route.name)) {
+          return;
+        }
         const { options } = descriptors[route.key];
-        const label : any =
+        const label: any =
           options.tabBarLabel !== undefined
             ? options.tabBarLabel
             : options.title !== undefined
@@ -35,7 +42,7 @@ export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
             navigation.navigate(route.name, route.params);
           }
         };
-        
+
         const onLongPress = () => {
           navigation.emit({
             type: "tabLongPress",
@@ -62,7 +69,7 @@ export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
 const styles = StyleSheet.create({
   tabber: {
     position: "absolute",
-    bottom: ios ? hp(4) : hp(8),
+    bottom: ios ? hp(4) : hp(10),
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
@@ -75,8 +82,8 @@ const styles = StyleSheet.create({
       width: 0,
       height: 1,
     },
-    shadowOpacity: ios ? 0.16 : 0.15, 
-    shadowRadius: ios ? 1.51 : 1.00,
+    shadowOpacity: ios ? 0.16 : 0.15,
+    shadowRadius: ios ? 1.51 : 1.0,
     elevation: ios ? 2 : 1,
   },
 });

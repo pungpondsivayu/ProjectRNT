@@ -9,6 +9,5 @@ export const icon: any = {
     <PlusIcon size={hp(3)} {...props} />
   ),
   calendar: (props: any) => <CalendarIcon size={hp(3)} {...props} />,
-
 };
 

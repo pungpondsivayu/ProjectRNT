@@ -9,4 +9,5 @@ export const icon: any = {
   history: (props: any) => (
     <ClipboardDocumentListIcon size={hp(3)} {...props} />
   ),
+  report: (props:any) => {}
 };

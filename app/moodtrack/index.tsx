@@ -1,26 +1,27 @@
 import { View, Text, ScrollView, TouchableOpacity } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import { BarChart, barDataItem, pieDataItem , lineDataItem, LineChart, PieChart } from "react-native-gifted-charts";
+import { BarChart, barDataItem, LineChart, PieChart } from "react-native-gifted-charts";
 import { parseDateByMode } from "@/helpers/controller/date/GetDate";
 import SegmentedControl from "@react-native-segmented-control/segmented-control";
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
+  DocumentChartBarIcon
 } from "react-native-heroicons/outline";
 import { useGetMoodbyIdQuery } from "@/controllers/Moodtrack.Controllers";
 import { ProcessMoodChart, ProcessSleepChart, ProcessStressChart } from "@/helpers/controller/Moottrack/ProcessDataChart";
-import { useNavigation, useRouter } from "expo-router";
+import { router, useNavigation, useRouter } from "expo-router";
 import { selectAllLoggedIn } from "@/redux/slice/auth.slice";
 import { useSelector } from "react-redux";
 import { useAuth } from "@/context/AuthContext";
 import { MoodData } from "./MoodData";
+import ButtonSheet from "@gorhom/bottom-sheet"
 const index = () => {
   //useHook
-  const router = useRouter();
   const navigation = useNavigation();
   const userData = useSelector(selectAllLoggedIn)[0];
   const { authState } = useAuth();
@@ -42,8 +43,7 @@ const index = () => {
   const [MaxValue, setMaxValue] = useState<number>(0);
   //use query
   const { data, error, refetch } = useGetMoodbyIdQuery(
-    // userData ? userData.id : 0
-    1
+    userData ? userData.id : 0
   );
 
   //function
@@ -145,9 +145,9 @@ const index = () => {
   };
 
   useEffect(() => {
-    // if (!authState?.authenticated) {
-    //   return router.replace("/auth")
-    // }
+    if (!authState?.authenticated) {
+      return router.replace("/auth")
+    }
   }, []);
 
   useEffect(() => {
@@ -229,7 +229,7 @@ const index = () => {
               Stress Chart
             </Text>
           </View>
-          <View>
+          <View className="mb-4">
             <View
               style={{
                 marginBottom: 20,
@@ -276,6 +276,22 @@ const index = () => {
               />
             </View>
           </View>
+          <TouchableOpacity
+            className="flex flex-row items-center gap-2 justify-end"
+            onPress={() =>
+              router.push({
+                pathname: "/moodtrack/Report",
+                params: {
+                  data: encodeURIComponent(JSON.stringify(chartData)), // เข้ารหัส JSON
+                  mode: "StressLevel",
+                  dateMode : chartPeriod
+                },
+              })
+            }
+          >
+            <DocumentChartBarIcon color={"black"} size={hp(3)} />
+            <Text>Report</Text>
+          </TouchableOpacity>
         </View>
         <View className="bg-white p-5 mb-7 rounded-2xl">
           <Text
@@ -287,7 +303,7 @@ const index = () => {
           >
             Mood Chart
           </Text>
-          <View>
+          <View className="mb-4">
             <View
               style={{
                 marginBottom: 20,
@@ -330,8 +346,11 @@ const index = () => {
               />
             </View>
             {renderLegendComponent()}
-
           </View>
+          {/* <TouchableOpacity className="flex flex-row items-center gap-2 justify-end">
+            <DocumentChartBarIcon color={"black"} size={hp(3)} />
+            <Text>Report</Text>
+          </TouchableOpacity> */}
         </View>
         <View className="bg-white p-5 mb-7 rounded-2xl">
           <Text
@@ -343,7 +362,7 @@ const index = () => {
           >
             Sleep Chart
           </Text>
-          <View>
+          <View className="mb-4">
             <View
               style={{
                 marginBottom: 20,
@@ -374,6 +393,10 @@ const index = () => {
               />
             </View>
           </View>
+          {/* <TouchableOpacity className="flex flex-row items-center gap-2 justify-end">
+            <DocumentChartBarIcon color={"black"} size={hp(3)} />
+            <Text>Report</Text>
+          </TouchableOpacity> */}
         </View>
       </ScrollView>
     </View>
