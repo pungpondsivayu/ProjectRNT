@@ -8,27 +8,27 @@ import { Calendar, CalendarProps } from "react-native-calendars";
 import { useSelector } from "react-redux";
 import { selectAllLoggedIn } from "@/redux/slice/auth.slice";
 import { useGetMoodbyDateQuery, useGetMoodbyIdQuery } from "@/controllers/Moodtrack.Controllers";
-import { useNavigation } from "expo-router";
+import { router, useNavigation } from "expo-router";
 import { MoodData } from "./MoodData";
+import { useAuth } from "@/context/AuthContext";
+import { IMentalHealth } from "@/@types/moodtrack/Imoodtrack";
 
 const CalendarWithMonthYearPicker = () => {
   //use Hook
   const userData = useSelector(selectAllLoggedIn)[0];
   const navigation = useNavigation();
-
+  const { authState } = useAuth();
   //setting value
   const [currentData, setCurrentData] = useState<any>([]);
-  const [dateData, setDateData] = useState<any>();
-  const [selectDate, setSelectDate] = useState<string>("");
+  const [moodData, setMoodData] = useState<IMentalHealth>();
+  
 
   //use query
   const { data, error, refetch } = useGetMoodbyIdQuery(
-    userData ? userData.id : 0
-    // 1
+    // userData ? userData.id : 0
+    1
   );
   
-  const { data:dataByDate, error:errorByDate } = useGetMoodbyDateQuery(selectDate);
-
   //function
   function FetchData() {
     if (data && !error) {
@@ -74,25 +74,22 @@ const CalendarWithMonthYearPicker = () => {
       );
     };
 
-    function handleSelect(day:string) {
-      setSelectDate(day)
-    }
-
   useEffect(() => {
     FetchData();
   }, [data, navigation]);
-
-  useEffect(() => {
-    if(!errorByDate && dataByDate){
-      setDateData(dataByDate)
-    }
-  }, [dataByDate , selectAllLoggedIn]);
 
   useEffect(() => {
     navigation.addListener("focus", () => {
       refetch();
     });
   }, [navigation, data]);
+
+
+  useEffect(() => {
+    // if (!authState?.authenticated) {
+    //   return router.replace("/auth")
+    // }
+  }, []);
 
   return (
     <View className="flex-1 bg-white">
@@ -111,17 +108,10 @@ const CalendarWithMonthYearPicker = () => {
         </View>
         <View className="mb-7">
           <Calendar
-            // Customize the appearance of the calendar
             style={{
               height: hp(36),
             }}
-            // Specify the current date
             current={new Date().toString()}
-            // Callback that gets called when the user selects a day
-            onDayPress={(day: any) => {
-              handleSelect(day.dateString);
-            }}
-            // Mark specific dates as marked
             markedDates={
               currentData && !Array.isArray(currentData) ? currentData : {}
             }

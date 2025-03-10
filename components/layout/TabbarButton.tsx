@@ -23,9 +23,6 @@ const TabbarButton = ({
 }: props) => {
   const scale = useSharedValue(0);
 
-  
-
-
 
   const animationTextStyle = useAnimatedStyle(() => {
     const opacity  = interpolate(scale.value , [0,1] , [1,0])

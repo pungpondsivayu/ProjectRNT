@@ -12,11 +12,12 @@ import {
   CalendarIcon,
   XMarkIcon,
   PlusIcon,
+  CameraIcon
 } from "react-native-heroicons/outline";
 import DateTimePicker, { DateType } from "react-native-ui-datepicker";
 import MoodList from "@/components/moodtrack/MoodList";
 import { LinearGradient } from "expo-linear-gradient";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import LottieView from "lottie-react-native";
 import Modal from "react-native-modal";
 import dayjs from "dayjs";
@@ -28,8 +29,8 @@ import { Formik } from "formik";
 import { Validation } from "@/validation/moodtrack/Validation";
 import { parseDateByMode } from "@/helpers/controller/date/GetDate";
 import { IMentalHealth } from "@/@types/moodtrack/Imoodtrack";
-import { useAddMoodMutation } from "@/controllers/Moodtrack.Controllers";
-import { useRouter } from "expo-router";
+import { useAddMoodMutation, useGetMoodbyDateQuery } from "@/controllers/Moodtrack.Controllers";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import Slider from '@react-native-community/slider';
 import { useSelector } from "react-redux";
 import { selectAllLoggedIn } from "@/redux/slice/auth.slice";
@@ -39,40 +40,60 @@ import {
 } from "react-native-alert-notification";
 import { Audio } from 'expo-av'
 import { MoodData } from "./MoodData";
+import { useAuth } from "@/context/AuthContext";
 
 const upsert = () => {
   //use hook
   const userData = useSelector(selectAllLoggedIn)[0];
-  const router = useRouter()
-  
+  const router = useRouter();
+
   //setting value
   const [activeMood, setActiveMood] = useState<number>(0);
+  const [moodData, setMoodData] = useState<IMentalHealth>();
   const [isModalVisible, setModalVisible] = useState(false);
   const [date, setDate] = useState<DateType>(dayjs());
   const deviceWidth = Dimensions.get("window").width;
   const deviceHeight = Dimensions.get("window").height;
-
+  const item = useLocalSearchParams();
+  const { authState } = useAuth();
   const initialValues: IMentalHealth = {
-    mood: MoodData[activeMood].name,
-    feeling: "",
-    stress_level: 0,
-    sleep_hours: 0,
-    exercise_minutes: 0,
-    social_interaction_score: 0,
-    notes: "",
-    userId : userData && userData.id,
-    date: `${parseDateByMode(
-      date?.toString() ?? new Date().toString(),
-      "getfulldate"
-    )}`,
+    mood: moodData ? moodData.mood : MoodData[activeMood].name,
+    feeling: moodData ? moodData.feeling : "",
+    stress_level: moodData ? moodData.stress_level : 0,
+    sleep_hours: moodData ? moodData.sleep_hours : 0,
+    exercise_minutes: moodData ? moodData.exercise_minutes : 0,
+    social_interaction_score: moodData ? moodData?.social_interaction_score : 0,
+    notes: moodData ? moodData.notes : "",
+    userId: moodData ? moodData.userId : userData && userData.id,
+    date: moodData
+      ? moodData.date
+      : `${parseDateByMode(
+          date?.toString() ?? new Date().toString(),
+          "getfulldate"
+        )}`,
   };
-  //use query
+
+  //use queryc
   const [AddMood] = useAddMoodMutation();
+  const { data, error } = useGetMoodbyDateQuery(
+    typeof item?.date === "string" ? item?.date.toString() : ""
+  );
 
   //function
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
+
+  function FetchDataByDate() {
+    if (data && !error) {
+      setMoodData(data);
+    }
+  }
+
+  useEffect(() => {
+    FetchDataByDate();
+    console.log(moodData);
+  }, [data, item]);
 
   async function HandleSubmit(values: IMentalHealth) {
     const response = await AddMood({
@@ -87,8 +108,10 @@ const upsert = () => {
       userId: values.userId,
       date: values.date,
     });
-    if(response.data){
-      const { sound } = await Audio.Sound.createAsync(require("@/assets/sound/success.mp3"))
+    if (response.data) {
+      const { sound } = await Audio.Sound.createAsync(
+        require("@/assets/sound/success.mp3")
+      );
       await sound.playAsync();
       Toast.show({
         type: ALERT_TYPE.SUCCESS,
@@ -101,7 +124,7 @@ const upsert = () => {
           params: { refresh: "0" },
         });
       }, 1500);
-    }else{
+    } else {
       const { sound } = await Audio.Sound.createAsync(
         require("@/assets/sound/failed.mp3")
       );
@@ -148,7 +171,10 @@ const upsert = () => {
                 justifyContent: "space-between",
               }}
             >
-              <Pressable onPress={() => setDate(new Date())} className="flex flex-row justify-end">
+              <Pressable
+                onPress={() => setDate(new Date())}
+                className="flex flex-row justify-end"
+              >
                 <Text
                   className="font-semibold text-sky-800"
                   style={{
@@ -164,6 +190,12 @@ const upsert = () => {
       </Modal>
     );
   }
+
+  useEffect(() => {
+    // if (!authState?.authenticated) {
+    //   return router.replace("/auth")
+    // }
+  }, []);
 
   return (
     <View className="flex-1 bg-white">
@@ -218,7 +250,14 @@ const upsert = () => {
           validationSchema={Validation}
           enableReinitialize
         >
-          {({ handleChange, handleBlur, setFieldValue, handleSubmit, values, errors }) => (
+          {({
+            handleChange,
+            handleBlur,
+            setFieldValue,
+            handleSubmit,
+            values,
+            errors,
+          }) => (
             <View>
               <View className="mx-4 mb-7">
                 <Text
@@ -269,7 +308,7 @@ const upsert = () => {
                     minimumTrackTintColor="#0284c7"
                     maximumTrackTintColor="#000000"
                     onValueChange={(e) => {
-                      setFieldValue("stress_level" , e);
+                      setFieldValue("stress_level", e);
                     }}
                     step={1}
                     value={values.stress_level}
@@ -296,7 +335,7 @@ const upsert = () => {
                     minimumTrackTintColor="#0284c7"
                     maximumTrackTintColor="#000000"
                     onValueChange={(e) => {
-                      setFieldValue("sleep_hours" , e);
+                      setFieldValue("sleep_hours", e);
                     }}
                     step={1}
                     value={values.sleep_hours}
@@ -323,7 +362,7 @@ const upsert = () => {
                     minimumTrackTintColor="#0284c7"
                     maximumTrackTintColor="#000000"
                     onValueChange={(e) => {
-                      setFieldValue("exercise_minutes" , e);
+                      setFieldValue("exercise_minutes", e);
                     }}
                     step={1}
                     value={values.exercise_minutes}
@@ -352,7 +391,7 @@ const upsert = () => {
                     minimumTrackTintColor="#0284c7"
                     maximumTrackTintColor="#000000"
                     onValueChange={(e) => {
-                      setFieldValue("social_interaction_score" , e);
+                      setFieldValue("social_interaction_score", e);
                     }}
                     step={1}
                     value={values.social_interaction_score}

@@ -42,8 +42,8 @@ const index = () => {
   const [MaxValue, setMaxValue] = useState<number>(0);
   //use query
   const { data, error, refetch } = useGetMoodbyIdQuery(
-    userData ? userData.id : 0
-    // 1
+    // userData ? userData.id : 0
+    1
   );
 
   //function
@@ -145,9 +145,9 @@ const index = () => {
   };
 
   useEffect(() => {
-    if (!authState?.authenticated) {
-      // return router.replace("/auth")
-    }
+    // if (!authState?.authenticated) {
+    //   return router.replace("/auth")
+    // }
   }, []);
 
   useEffect(() => {
