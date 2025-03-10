@@ -6,7 +6,6 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import Animated, { BounceIn } from "react-native-reanimated";
-import { useNavigation } from "@react-navigation/native";
 import { router } from "expo-router";
 
 const index = () => {

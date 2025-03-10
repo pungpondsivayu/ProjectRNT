@@ -10,17 +10,9 @@
     },
     {
       "email": "test2@gmail.com",
-      "password": "$2a$10$n3sO/DBBfzCCzcKgG0sM8eLNiP.HBip61IsWd05GLvwzOAYWEbTI.",
-      "id": 3,
-      "name": "test",
-      "phoneNumber": "09876564321",
-      "role": "User"
-    },
-    {
-      "email": "test3@gmail.com",
-      "password": "$2a$10$jHaKV/TqoYaLt7uJjj1YJOJc9UpiXCez7uuOHw5UlusrYZqNMItkO",
-      "id": 4,
-      "name": "test3",
+      "password": "$2a$10$NIXJBZuef9G7pUwz81Vs5uZcjtCyjGohFa7nnUoKmrAqN2YeC31NW",
+      "id": 2,
+      "name": "test2@gmail.com",
       "phoneNumber": "0987654321",
       "role": "User"
     }
@@ -237,7 +229,7 @@
   ],
   "mood": [
     {
-      "id": "1",
+      "id": 1,
       "date": "2025-01-20",
       "mood": "Sad",
       "feeling": "Lonely and missing friends",
@@ -248,7 +240,7 @@
       "userId": 1
     },
     {
-      "id": "2",
+      "id": 2,
       "date": "2025-01-21",
       "mood": "Happy",
       "feeling": "Accomplished and energetic",
@@ -260,9 +252,9 @@
       "notes": "Feeling proud, keep up the momentum!"
     },
     {
-      "id": "3",
+      "id": 3,
       "date": "2025-01-22",
-      "mood": "Anxious",
+      "mood": "Angry",
       "feeling": "Nervous about upcoming presentation",
       "stress_level": 6,
       "sleep_hours": 5,
@@ -272,9 +264,9 @@
       "notes": "Practice presentation to build confidence."
     },
     {
-      "id": "4",
+      "id": 4,
       "date": "2025-01-23",
-      "mood": "Content",
+      "mood": "Happy",
       "feeling": "Relaxed and peaceful",
       "stress_level": 3,
       "sleep_hours": 7,
@@ -284,9 +276,9 @@
       "notes": "Consider scheduling regular nature walks."
     },
     {
-      "id": "5",
+      "id": 5,
       "date": "2025-01-24",
-      "mood": "Frustrated",
+      "mood": "Happy",
       "feeling": "Annoyed due to technical issues",
       "stress_level": 5,
       "sleep_hours": 6,
@@ -296,9 +288,9 @@
       "notes": "Look into backup internet solutions."
     },
     {
-      "id": "6",
+      "id": 6,
       "date": "2025-01-25",
-      "mood": "Motivated",
+      "mood": "Sad",
       "feeling": "Inspired to achieve goals",
       "stress_level": 3,
       "sleep_hours": 7,
@@ -308,9 +300,9 @@
       "notes": "Write down actionable goals for the week."
     },
     {
-      "id": "7",
+      "id": 7,
       "date": "2025-01-26",
-      "mood": "Lonely",
+      "mood": "Happy",
       "feeling": "Missing close family members",
       "stress_level": 6,
       "sleep_hours": 6,
@@ -320,9 +312,9 @@
       "notes": "Schedule a video call with family soon."
     },
     {
-      "id": "8",
+      "id": 8,
       "date": "2025-01-27",
-      "mood": "Excited",
+      "mood": "Sad",
       "feeling": "Looking forward to a trip",
       "stress_level": 2,
       "sleep_hours": 8,
@@ -332,9 +324,9 @@
       "notes": "Pack essentials and finalize itinerary."
     },
     {
-      "id": "9",
+      "id": 9,
       "date": "2025-01-28",
-      "mood": "Tired",
+      "mood": "Happy",
       "feeling": "Exhausted from work",
       "stress_level": 7,
       "sleep_hours": 4,
@@ -344,9 +336,9 @@
       "notes": "Plan breaks and delegate tasks if possible."
     },
     {
-      "id": "10",
+      "id": 10,
       "date": "2025-01-29",
-      "mood": "Grateful",
+      "mood": "Sad",
       "feeling": "Appreciative of support from friends",
       "stress_level": 3,
       "sleep_hours": 7,
@@ -356,9 +348,9 @@
       "notes": "Make time to nurture friendships."
     },
     {
-      "id": "11",
+      "id": 11,
       "date": "2025-01-30",
-      "mood": "Bored",
+      "mood": "Angry",
       "feeling": "Lacking stimulation",
       "stress_level": 4,
       "sleep_hours": 6,
@@ -368,9 +360,9 @@
       "notes": "Try a new hobby or activity to break monotony."
     },
     {
-      "id": "12",
+      "id": 12,
       "date": "2025-02-01",
-      "mood": "Hopeful",
+      "mood": "Happy",
       "feeling": "Positive about future plans",
       "stress_level": 3,
       "sleep_hours": 8,
@@ -380,9 +372,9 @@
       "notes": "Break the plan into manageable steps."
     },
     {
-      "id": "13",
+      "id": 13,
       "date": "2025-02-02",
-      "mood": "Overwhelmed",
+      "mood": "Sad",
       "feeling": "Too many responsibilities",
       "stress_level": 8,
       "sleep_hours": 5,
@@ -392,9 +384,9 @@
       "notes": "Prioritize tasks and seek help if needed."
     },
     {
-      "id": "14",
+      "id": 14,
       "date": "2025-02-03",
-      "mood": "Relaxed",
+      "mood": "Sad",
       "feeling": "Enjoyed a calm evening",
       "stress_level": 2,
       "sleep_hours": 7,
@@ -404,7 +396,7 @@
       "notes": "Incorporate reading into daily routine."
     },
     {
-      "id": "15",
+      "id": 15,
       "date": "2025-02-04",
       "mood": "Sad",
       "feeling": "Missed an important opportunity",
@@ -416,9 +408,9 @@
       "notes": "Reflect on lessons learned and move forward."
     },
     {
-      "id": "16",
+      "id": 16,
       "date": "2025-02-05",
-      "mood": "Excited",
+      "mood": "Angry",
       "feeling": "Full of energy and optimism",
       "stress_level": 2,
       "sleep_hours": 8,
@@ -428,9 +420,9 @@
       "notes": "Apply the skills learned from the workshop."
     },
     {
-      "id": "17",
+      "id": 17,
       "date": "2025-02-06",
-      "mood": "Anxious",
+      "mood": "Angry",
       "feeling": "Worried about financial issues",
       "stress_level": 7,
       "sleep_hours": 5,
@@ -440,9 +432,9 @@
       "notes": "Create a budget plan to manage finances better."
     },
     {
-      "id": "18",
+      "id": 18,
       "date": "2025-02-07",
-      "mood": "Grateful",
+      "mood": "Sad",
       "feeling": "Thankful for small wins",
       "stress_level": 3,
       "sleep_hours": 7,
@@ -452,9 +444,9 @@
       "notes": "Celebrate small achievements often."
     },
     {
-      "id": "19",
+      "id": 19,
       "date": "2025-02-08",
-      "mood": "Lonely",
+      "mood": "Angry",
       "feeling": "Disconnected from others",
       "stress_level": 6,
       "sleep_hours": 6,
@@ -464,9 +456,9 @@
       "notes": "Reach out to friends and plan a meetup."
     },
     {
-      "id": "20",
+      "id": 20,
       "date": "2025-02-09",
-      "mood": "Optimistic",
+      "mood": "Angry",
       "feeling": "Confident about current progress",
       "stress_level": 3,
       "sleep_hours": 7,
@@ -476,9 +468,9 @@
       "notes": "Set new milestones to keep the momentum."
     },
     {
-      "id": "21",
+      "id": 21,
       "date": "2025-02-10",
-      "mood": "Frustrated",
+      "mood": "Angry",
       "feeling": "Irritated by minor inconveniences",
       "stress_level": 5,
       "sleep_hours": 6,
@@ -488,7 +480,7 @@
       "notes": "Practice patience and focus on what you can control."
     },
     {
-      "id": "22",
+      "id": 22,
       "date": "2025-02-11",
       "mood": "Happy",
       "feeling": "Had a great conversation with an old friend",
@@ -500,9 +492,9 @@
       "notes": "Stay in touch with old friends more often."
     },
     {
-      "id": "23",
+      "id": 23,
       "date": "2025-02-12",
-      "mood": "Tired",
+      "mood": "Angry",
       "feeling": "Drained from a long workday",
       "stress_level": 6,
       "sleep_hours": 5,
@@ -512,10 +504,10 @@
       "notes": "Try to schedule fewer meetings or take breaks in between."
     },
     {
-      "id": "24",
+      "id": 24,
       "date": "2025-02-13",
-      "mood": "Hopeful",
-      "feeling": "Excited about a new opportunity",
+      "mood": "Angry",
+      "feeling": "Sad about a new opportunity",
       "stress_level": 3,
       "sleep_hours": 8,
       "exercise_minutes": 35,
@@ -524,9 +516,9 @@
       "notes": "Prepare well for the next steps."
     },
     {
-      "id": "25",
+      "id": 25,
       "date": "2025-02-14",
-      "mood": "Grateful",
+      "mood": "Sad",
       "feeling": "Appreciative of loved ones",
       "stress_level": 2,
       "sleep_hours": 7,
@@ -536,9 +528,9 @@
       "notes": "Cherish the relationships in life."
     },
     {
-      "id": "26",
+      "id": 26,
       "date": "2025-02-15",
-      "mood": "Stressed",
+      "mood": "Happy",
       "feeling": "Overwhelmed by deadlines",
       "stress_level": 8,
       "sleep_hours": 5,
@@ -548,9 +540,9 @@
       "notes": "Break tasks into smaller steps and focus on progress."
     },
     {
-      "id": "27",
+      "id": 27,
       "date": "2025-02-16",
-      "mood": "Excited",
+      "mood": "Happy",
       "feeling": "Looking forward to a weekend trip",
       "stress_level": 3,
       "sleep_hours": 8,
@@ -560,9 +552,9 @@
       "notes": "Pack essentials and prepare for a great time."
     },
     {
-      "id": "28",
+      "id": 28,
       "date": "2025-02-17",
-      "mood": "Relaxed",
+      "mood": "Happy",
       "feeling": "Enjoyed a quiet evening",
       "stress_level": 5,
       "sleep_hours": 7,
@@ -572,9 +564,9 @@
       "notes": "Make meditation a daily habit."
     },
     {
-      "id": "29",
+      "id": 29,
       "date": "2025-02-18",
-      "mood": "Frustrated",
+      "mood": "Angry",
       "feeling": "Annoyed by technical difficulties",
       "stress_level": 9,
       "sleep_hours": 6,
@@ -582,6 +574,30 @@
       "social_interaction_score": 4,
       "userId": 1,
       "notes": "Look into better backup solutions."
+    },
+    {
+      "id": 30,
+      "mood": "Angry",
+      "feeling": "Test",
+      "stress_level": 7,
+      "sleep_hours": 4,
+      "exercise_minutes": 10,
+      "social_interaction_score": 4,
+      "notes": "Test",
+      "userId": 1,
+      "date": "2025-03-08"
+    },
+    {
+      "id": 31,
+      "mood": "Sad",
+      "feeling": "Test",
+      "stress_level": 7,
+      "sleep_hours": 4,
+      "exercise_minutes": 10,
+      "social_interaction_score": 4,
+      "notes": "Test",
+      "userId": 1,
+      "date": "2025-03-09"
     }
   ]
 }

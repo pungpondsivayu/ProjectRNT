@@ -24,6 +24,7 @@ import { useRegisterMutation } from "@/controllers/Auth.Controllers";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { ALERT_TYPE, Toast } from "react-native-alert-notification";
 import { Audio } from 'expo-av'
+import { useAuth } from "@/context/AuthContext";
 
 const signup = () => {
   //setting value
@@ -31,7 +32,7 @@ const signup = () => {
   const [isCheaskBox, setIsCheackBox] = useState<boolean>(false);
   const ios = Platform.OS == "ios";
   //use query
-  const [register] = useRegisterMutation()
+  const { onRegister } = useAuth();
 
   const initialValues: IRegister = {
     id: 0,
@@ -44,11 +45,12 @@ const signup = () => {
 
   async function HandleSubmit(values: IRegister) {
     try {
-      const response = await register!(values);
+      const response = await onRegister!(values);
       if (response.data) {
         const { sound } = await Audio.Sound.createAsync(
           require("@/assets/sound/success.mp3")
         );
+        await sound.playAsync()
         Toast.show({
           type: ALERT_TYPE.SUCCESS,
           title: "SUCCESS",
@@ -62,6 +64,7 @@ const signup = () => {
         const { sound } = await Audio.Sound.createAsync(
           require("@/assets/sound/failed.mp3")
         );
+        await sound.playAsync();
         Toast.show({
           type: ALERT_TYPE.DANGER,
           title: "ERROR",

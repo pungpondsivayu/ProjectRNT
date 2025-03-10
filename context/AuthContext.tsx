@@ -1,4 +1,4 @@
-import { ILogin } from "@/@types/auth/AuthType";
+import { ILogin, IRegister } from "@/@types/auth/AuthType";
 import {
   useLoginMutation,
   useRegisterMutation,
@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 interface Authprops {
   authState?: { token: string | null; authenticated: boolean | null };
   onLogin?: (values:ILogin) => Promise<any>
+  onRegister?: (values:IRegister) => Promise<any>
   onLogout? : () => Promise<any>
 }
 
@@ -51,6 +52,14 @@ export const AuthProvider = ({ children }: any) => {
     }
   }
 
+const register = async (value: IRegister) => {
+  try {
+    return await signup(value);
+  } catch (e) {
+    console.log(e);
+  }
+};
+
   const logout = async () => {
     await AsyncStorage.removeItem("token");
     setAuthState({
@@ -59,11 +68,13 @@ export const AuthProvider = ({ children }: any) => {
     })
     return true
   }
+  
 
   const value = {
     authState,
     onLogin : login,
-    onLogout : logout
+    onLogout : logout,
+    onRegister : register
   };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

@@ -28,7 +28,7 @@ function Home() {
         textBody: `Logout successfully.`,
       });
       setTimeout(() => {
-        router.push("/(tabs)")
+        router.replace("/(tabs)")
       }, 1500);
     }else{
       Toast.show({

@@ -13,7 +13,6 @@ import {
   useGetArticleCategoriesQuery,
   useGetArticleQuery,
 } from "@/controllers/Article.Controllers";
-import { Link, useNavigation } from "@react-navigation/native";
 
 export default function article() {
   const [activeCategory, setActiveCategory] = useState<Number | undefined>(1);

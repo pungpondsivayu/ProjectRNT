@@ -9,26 +9,26 @@ import ServiceCard from './ServiceCard';
 import { BellIcon } from 'react-native-heroicons/outline';
 
 const ServiceData = [
-  {
-    name: "Check for disease yourself by AI",
-    icon: <BellIcon size={hp(4)} color="gray" />,
-    path : "/cheakdisease"
-  },
-  {
-    name: "Search for a hospital",
-    icon: <BellIcon size={hp(4)} color="gray" />,
-    path : "/searchhospital"
-  },
+  // {
+  //   name: "Check for disease yourself by AI",
+  //   icon: <BellIcon size={hp(4)} color="gray" />,
+  //   path : "/cheakdisease"
+  // },
+  // {
+  //   name: "Search for a hospital",
+  //   icon: <BellIcon size={hp(4)} color="gray" />,
+  //   path : "/searchhospital"
+  // },
   {
     name: "Mental Health Tracker",
     icon: <BellIcon size={hp(4)} color="gray" />,
     path : "/moodtrack"
   },
-  {
-    name: "Follow up on medication",
-    icon: <BellIcon size={hp(4)} color="gray" />,
-    path : "/followmedication"
-  },
+  // {
+  //   name: "Follow up on medication",
+  //   icon: <BellIcon size={hp(4)} color="gray" />,
+  //   path : "/followmedication"
+  // },
 ];
 
 const Service = () => {

@@ -38,6 +38,7 @@ import {
   Toast,
 } from "react-native-alert-notification";
 import { Audio } from 'expo-av'
+import { MoodData } from "./MoodData";
 
 const upsert = () => {
   //use hook
@@ -50,29 +51,6 @@ const upsert = () => {
   const [date, setDate] = useState<DateType>(dayjs());
   const deviceWidth = Dimensions.get("window").width;
   const deviceHeight = Dimensions.get("window").height;
-  const MoodData = [
-    {
-      id: 1,
-      name: "Happy",
-      emoji: require("../../assets/images/mood/Happy.png"),
-      animation: require("../../assets/animation/Mood/Happy.json"),
-      color: ["#ff8200", "#ffb500", "#fffa00"],
-    },
-    {
-      id: 2,
-      name: "Sad",
-      emoji: require("../../assets/images/mood/Sad.png"),
-      animation: require("../../assets/animation/Mood/Sad.json"),
-      color: ["#c76600", "#ffba00", "#fffb2b"],
-    },
-    {
-      id: 3,
-      name: "Angry",
-      emoji: require("../../assets/images/mood/Angry.png"),
-      animation: require("../../assets/animation/Mood/Angry.json"),
-      color: ["#f6370a", "#ff7e00", "#fbff00"],
-    },
-  ];
 
   const initialValues: IMentalHealth = {
     mood: MoodData[activeMood].name,
@@ -90,7 +68,6 @@ const upsert = () => {
   };
   //use query
   const [AddMood] = useAddMoodMutation();
-  
 
   //function
   const toggleModal = () => {
@@ -98,7 +75,6 @@ const upsert = () => {
   };
 
   async function HandleSubmit(values: IMentalHealth) {
-    console.log(values)
     const response = await AddMood({
       id: 0,
       mood: values.mood,
@@ -120,10 +96,15 @@ const upsert = () => {
         textBody: `Moodtrack create successfully.`,
       });
       setTimeout(() => {
-        router.push("/moodtrack");
+        router.replace({
+          pathname: "/moodtrack",
+          params: { refresh: "0" },
+        });
       }, 1500);
     }else{
-      const { sound } = await Audio.Sound.createAsync(require("@/assets/sound/failed.mp3"))
+      const { sound } = await Audio.Sound.createAsync(
+        require("@/assets/sound/failed.mp3")
+      );
       await sound.playAsync();
       Toast.show({
         type: ALERT_TYPE.SUCCESS,
@@ -258,7 +239,7 @@ const upsert = () => {
                       padding: 10,
                       fontSize: hp(1.8),
                     }}
-                    placeholder="How are you feeling today?"
+                    placeholder="How are you feceling today"
                     className={`rounded-xl bg-neutral-100 ${
                       errors.feeling ? "border border-red-600" : ""
                     }`}
